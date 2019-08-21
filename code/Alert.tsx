@@ -1,7 +1,6 @@
+import BaseUiAlert from "baseui/icon/alert";
+import { addPropertyControls, ControlType } from "framer";
 import * as React from "react";
-import * as System from "baseui";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/Alert";
 import { withHOC } from "./withHOC";
 
 const style: React.CSSProperties = {
@@ -10,19 +9,16 @@ const style: React.CSSProperties = {
 };
 
 const InnerAlert: React.SFC = props => {
-  return <System.Alert {...props} style={style} />;
+  return <BaseUiAlert {...props} style={style} />;
 };
 
 export const Alert = withHOC(InnerAlert);
 
 Alert.defaultProps = {
-  width: 150,
+  width: 50,
   height: 50
 };
 
 addPropertyControls(Alert, {
-  children: merge(controls.children, {}),
-  size: merge(controls.size, {}),
-  color: merge(controls.color, {}),
-  title: merge(controls.title, {})
+  color: { type: ControlType.Color, defaultValue: "#121212" }
 });

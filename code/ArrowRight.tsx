@@ -1,7 +1,6 @@
+import BaseUiArrowRight from "baseui/icon/arrow-right";
+import { addPropertyControls, ControlType } from "framer";
 import * as React from "react";
-import * as System from "baseui";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/ArrowRight";
 import { withHOC } from "./withHOC";
 
 const style: React.CSSProperties = {
@@ -10,19 +9,16 @@ const style: React.CSSProperties = {
 };
 
 const InnerArrowRight: React.SFC = props => {
-  return <System.ArrowRight {...props} style={style} />;
+  return <BaseUiArrowRight {...props} style={style} />;
 };
 
 export const ArrowRight = withHOC(InnerArrowRight);
 
 ArrowRight.defaultProps = {
-  width: 150,
+  width: 50,
   height: 50
 };
 
 addPropertyControls(ArrowRight, {
-  children: merge(controls.children, {}),
-  size: merge(controls.size, {}),
-  color: merge(controls.color, {}),
-  title: merge(controls.title, {})
+  color: { type: ControlType.Color, defaultValue: "#121212" }
 });
