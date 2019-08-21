@@ -1,0 +1,23 @@
+{
+	"main": "dist/index.js",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/react": "^16.8"
+	},
+	"peerDependencies": {
+		"framer": "^1.0",
+		"react": "^16.8"
+	},
+	"framer": {
+		"id": "dcd369d0-d444-4eb5-9f6f-945cad786c86"
+	},
+	"author": "Iain Kettles",
+	"dependencies": {
+		"@types/styletron-engine-atomic": "^1.1.0",
+		"@types/styletron-react": "^5.0.1",
+		"@types/styletron-standard": "^2.0.0",
+		"baseui": "^8.16.5",
+		"styletron-engine-atomic": "^1.4.0",
+		"styletron-react": "^5.2.0"
+	}
+}
