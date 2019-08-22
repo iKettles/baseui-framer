@@ -1,6 +1,6 @@
-import { ControlType } from "framer";
+import { ControlType, PropertyControls } from "framer";
 
-export const ThemePropertyControl = {
+export const ThemePropertyControl: PropertyControls = {
   theme: {
     title: "Theme",
     options: ["dark", "light"],

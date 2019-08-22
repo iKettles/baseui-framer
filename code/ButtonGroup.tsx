@@ -1,8 +1,10 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/button-group";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/ButtonGroup";
 import { withHOC } from "./withHOC";
+import { Button } from "./Button";
+import { ButtonPropertyControls } from "./Button";
 
 const style: React.CSSProperties = {
   width: "100%",
@@ -10,7 +12,13 @@ const style: React.CSSProperties = {
 };
 
 const InnerButtonGroup: React.SFC = props => {
-  return <System.ButtonGroup {...props} style={style} />;
+  return (
+    <System.ButtonGroup {...props} style={style}>
+      {props.buttons.map((button, index) => (
+        <Button key={index} kind={props.buttonKind} text={button}></Button>
+      ))}
+    </System.ButtonGroup>
+  );
 };
 
 export const ButtonGroup = withHOC(InnerButtonGroup);
@@ -22,7 +30,19 @@ ButtonGroup.defaultProps = {
 
 addPropertyControls(ButtonGroup, {
   ariaLabel: merge(controls.ariaLabel, {}),
-  children: merge(controls.children, {}),
+  buttons: {
+    title: 'Buttons',
+    type: ControlType.Array,
+    propertyControl: {
+      title: 'Text',
+      type: ControlType.String,
+    }
+  },
+  buttonKind: {
+    ...ButtonPropertyControls.kind,
+    defaultValue: 'primary',
+    title: 'Button Kind'
+  },
   disabled: merge(controls.disabled, {}),
   mode: merge(controls.mode, {}),
   selected: merge(controls.selected, {}),

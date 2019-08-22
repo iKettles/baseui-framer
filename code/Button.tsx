@@ -4,17 +4,16 @@ import { ControlType, PropertyControls, addPropertyControls, ControlDescription,
 import { controls, merge } from "./generated/Button";
 import { withHOC } from "./withHOC";
 import { ThemePropertyControl } from "./utils/PropertyControls";
+import { filterProps } from "./utils/FilterProps";
 
 const style: React.CSSProperties = {
   width: "100%",
   height: "100%"
 };
 
-const InnerButton: React.SFC = props => {
-  let filteredProps = {...props} as any;
-  delete filteredProps.willChangeTransform;
+export const InnerButton: React.SFC = props => {
   return (
-    <System.Button {...filteredProps} style={style}>
+    <System.Button {...filterProps(props, ['willChangeTransform'])} style={style}>
       {props.text}
     </System.Button>
   );
@@ -34,7 +33,7 @@ Button.defaultProps = {
   size: System.SIZE.default,
 };
 
-addPropertyControls(Button, {
+export const ButtonPropertyControls: PropertyControls = {
   href: merge(controls.href, {}),
   target: merge(controls.target, {}),
   children: merge(controls.children, {}),
@@ -53,4 +52,6 @@ addPropertyControls(Button, {
     defaultValue: 'Button'
   },
   ...ThemePropertyControl
-});
+};
+
+addPropertyControls(Button, ButtonPropertyControls);
