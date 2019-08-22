@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/datepicker";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/TimePicker";
 import { withHOC } from "./withHOC";
@@ -10,7 +10,7 @@ const style: React.CSSProperties = {
 };
 
 const InnerTimePicker: React.SFC = props => {
-  return <System.TimePicker {...props} style={style} />;
+  return <System.TimePicker {...props} />;
 };
 
 export const TimePicker = withHOC(InnerTimePicker);
@@ -21,10 +21,8 @@ TimePicker.defaultProps = {
 };
 
 addPropertyControls(TimePicker, {
-  format: merge(controls.format, {}),
-  positive: merge(controls.positive, {}),
-  error: merge(controls.error, {}),
-  creatable: merge(controls.creatable, {}),
-  disabled: merge(controls.disabled, {}),
-  step: merge(controls.step, {})
+  format: merge(controls.format, { defaultValue: "12" }),
+  positive: merge(controls.positive, { defaultValue: false }),
+  error: merge(controls.error, { defaultValue: false }),
+  disabled: merge(controls.disabled, { defaultValue: false })
 });
