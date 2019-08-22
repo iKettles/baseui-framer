@@ -1,7 +1,6 @@
+import BaseUiTriangleRight from "baseui/icon/triangle-right";
+import { addPropertyControls, ControlType } from "framer";
 import * as React from "react";
-import * as System from "baseui";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/TriangleRight";
 import { withHOC } from "./withHOC";
 
 const style: React.CSSProperties = {
@@ -10,19 +9,16 @@ const style: React.CSSProperties = {
 };
 
 const InnerTriangleRight: React.SFC = props => {
-  return <System.TriangleRight {...props} style={style} />;
+  return <BaseUiTriangleRight {...props} style={style} />;
 };
 
 export const TriangleRight = withHOC(InnerTriangleRight);
 
 TriangleRight.defaultProps = {
-  width: 150,
+  width: 50,
   height: 50
 };
 
 addPropertyControls(TriangleRight, {
-  children: merge(controls.children, {}),
-  size: merge(controls.size, {}),
-  color: merge(controls.color, {}),
-  title: merge(controls.title, {})
+  color: { type: ControlType.Color, defaultValue: "#121212" }
 });
