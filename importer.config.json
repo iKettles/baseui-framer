@@ -81,10 +81,10 @@
             "ignore": false
         },
         "AspectRatioBox": {
-            "ignore": false
+            "ignore": true
         },
         "AspectRatioBoxBody": {
-            "ignore": false
+            "ignore": true
         },
         "Avatar": {
             "ignore": false
@@ -96,7 +96,7 @@
             "ignore": false
         },
         "Block": {
-            "ignore": false
+            "ignore": true
         },
         "Breadcrumbs": {
             "ignore": false
@@ -618,7 +618,7 @@
             "ignore": false
         },
         "AutosizeInput": {
-            "ignore": false
+            "ignore": true
         },
         "SelectDropdown": {
             "ignore": false
@@ -804,7 +804,7 @@
             "ignore": false
         },
         "Body": {
-            "ignore": false
+            "ignore": true
         },
         "CloseIconSvg": {
             "ignore": false
