@@ -180,10 +180,10 @@
       "ignore": false
     },
     "Calendar": {
-      "ignore": false
+      "ignore": true
     },
     "StatefulCalendar": {
-      "ignore": false
+      "ignore": true
     },
     "Datepicker": {
       "ignore": false
@@ -288,7 +288,7 @@
       "ignore": false
     },
     "CheckIndeterminate": {
-      "ignore": false
+      "ignore": true
     },
     "Check": {
       "ignore": false
