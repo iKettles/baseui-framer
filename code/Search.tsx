@@ -1,7 +1,6 @@
+import BaseUiSearch from "baseui/icon/search";
+import { addPropertyControls, ControlType } from "framer";
 import * as React from "react";
-import * as System from "baseui";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/Search";
 import { withHOC } from "./withHOC";
 
 const style: React.CSSProperties = {
@@ -10,19 +9,16 @@ const style: React.CSSProperties = {
 };
 
 const InnerSearch: React.SFC = props => {
-  return <System.Search {...props} style={style} />;
+  return <BaseUiSearch {...props} style={style} />;
 };
 
 export const Search = withHOC(InnerSearch);
 
 Search.defaultProps = {
-  width: 150,
+  width: 50,
   height: 50
 };
 
 addPropertyControls(Search, {
-  children: merge(controls.children, {}),
-  size: merge(controls.size, {}),
-  color: merge(controls.color, {}),
-  title: merge(controls.title, {})
+  color: { type: ControlType.Color, defaultValue: "#121212" }
 });
