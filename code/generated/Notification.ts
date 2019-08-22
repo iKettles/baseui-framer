@@ -15,21 +15,27 @@ export type Controls = {
  */
 export const controls: Controls = {
   autoHideDuration: { title: "AutoHideDuration", type: ControlType.Number },
-  children: { title: "Children", type: ControlType.String },
-  closeable: { title: "Closeable", type: ControlType.Boolean },
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
+  closeable: {
+    title: "Closeable",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
   kind: {
     title: "Kind",
     options: ["info", "positive", "warning", "negative"],
     optionTitles: ["Info", "Positive", "Warning", "Negative"],
+    defaultValue: "info",
     type: ControlType.Enum
   },
   notificationType: {
     title: "NotificationType",
     options: ["inline", "toast"],
     optionTitles: ["Inline", "Toast"],
+    defaultValue: "inline",
     type: ControlType.Enum
   },
-  key: { title: "Key", type: ControlType.String }
+  key: { title: "Key", defaultValue: "", type: ControlType.String }
 };
 
 export function merge(

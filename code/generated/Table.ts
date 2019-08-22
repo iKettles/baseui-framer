@@ -12,9 +12,14 @@ export type Controls = {
 export const controls: Controls = {
   horizontalScrollWidth: {
     title: "HorizontalScrollWidth",
+    defaultValue: "",
     type: ControlType.String
   },
-  isLoading: { title: "IsLoading", type: ControlType.Boolean }
+  isLoading: {
+    title: "IsLoading",
+    defaultValue: false,
+    type: ControlType.Boolean
+  }
 };
 
 export function merge(

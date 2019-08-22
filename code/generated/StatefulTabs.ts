@@ -13,14 +13,23 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  children: { title: "Children", type: ControlType.String },
-  activeKey: { title: "ActiveKey", type: ControlType.String },
-  disabled: { title: "Disabled", type: ControlType.Boolean },
-  renderAll: { title: "RenderAll", type: ControlType.Boolean },
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
+  activeKey: { title: "ActiveKey", defaultValue: "", type: ControlType.String },
+  disabled: {
+    title: "Disabled",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  renderAll: {
+    title: "RenderAll",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
   orientation: {
     title: "Orientation",
     options: ["horizontal", "vertical"],
     optionTitles: ["Horizontal", "Vertical"],
+    defaultValue: "horizontal",
     type: ControlType.Enum
   }
 };

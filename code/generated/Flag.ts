@@ -9,7 +9,7 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  width: { title: "Width", type: ControlType.String }
+  width: { title: "Width", defaultValue: "", type: ControlType.String }
 };
 
 export function merge(

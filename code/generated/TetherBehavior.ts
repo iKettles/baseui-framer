@@ -10,7 +10,7 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  children: { title: "Children", type: ControlType.String },
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
   placement: {
     title: "Placement",
     options: [
@@ -43,6 +43,7 @@ export const controls: Controls = {
       "LeftBottom",
       "LeftTop"
     ],
+    defaultValue: "auto",
     type: ControlType.Enum
   }
 };

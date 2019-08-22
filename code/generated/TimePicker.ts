@@ -18,12 +18,25 @@ export const controls: Controls = {
     title: "Format",
     options: ["12", "24"],
     optionTitles: ["12", "24"],
+    defaultValue: "12",
     type: ControlType.Enum
   },
-  positive: { title: "Positive", type: ControlType.Boolean },
-  error: { title: "Error", type: ControlType.Boolean },
-  creatable: { title: "Creatable", type: ControlType.Boolean },
-  disabled: { title: "Disabled", type: ControlType.Boolean },
+  positive: {
+    title: "Positive",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  error: { title: "Error", defaultValue: false, type: ControlType.Boolean },
+  creatable: {
+    title: "Creatable",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  disabled: {
+    title: "Disabled",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
   step: { title: "Step", type: ControlType.Number }
 };
 

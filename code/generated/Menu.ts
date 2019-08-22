@@ -12,13 +12,22 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  activedescendantId: { title: "ActivedescendantId", type: ControlType.String },
+  activedescendantId: {
+    title: "ActivedescendantId",
+    defaultValue: "",
+    type: ControlType.String
+  },
   highlightedIndex: { title: "HighlightedIndex", type: ControlType.Number },
-  noResultsMsg: { title: "NoResultsMsg", type: ControlType.String },
+  noResultsMsg: {
+    title: "NoResultsMsg",
+    defaultValue: "",
+    type: ControlType.String
+  },
   size: {
     title: "Size",
     options: ["default", "compact"],
     optionTitles: ["Default", "Compact"],
+    defaultValue: "default",
     type: ControlType.Enum
   }
 };

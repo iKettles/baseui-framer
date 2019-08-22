@@ -10,8 +10,16 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  removable: { title: "Removable", type: ControlType.Boolean },
-  removableByMove: { title: "RemovableByMove", type: ControlType.Boolean }
+  removable: {
+    title: "Removable",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  removableByMove: {
+    title: "RemovableByMove",
+    defaultValue: false,
+    type: ControlType.Boolean
+  }
 };
 
 export function merge(

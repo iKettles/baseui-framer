@@ -15,21 +15,31 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  animate: { title: "Animate", type: ControlType.Boolean },
-  autofocus: { title: "Autofocus", type: ControlType.Boolean },
-  children: { title: "Children", type: ControlType.String },
-  closeable: { title: "Closeable", type: ControlType.Boolean },
-  isOpen: { title: "IsOpen", type: ControlType.Boolean },
+  animate: { title: "Animate", defaultValue: false, type: ControlType.Boolean },
+  autofocus: {
+    title: "Autofocus",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
+  closeable: {
+    title: "Closeable",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  isOpen: { title: "IsOpen", defaultValue: false, type: ControlType.Boolean },
   role: {
     title: "Role",
     options: ["dialog", "alertdialog"],
     optionTitles: ["Dialog", "Alertdialog"],
+    defaultValue: "dialog",
     type: ControlType.Enum
   },
   size: {
     title: "Size",
     options: ["auto", "default", "full"],
     optionTitles: ["Auto", "Default", "Full"],
+    defaultValue: "auto",
     type: ControlType.Enum
   }
 };

@@ -15,13 +15,18 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  ariaLabel: { title: "AriaLabel", type: ControlType.String },
-  children: { title: "Children", type: ControlType.String },
-  disabled: { title: "Disabled", type: ControlType.Boolean },
+  ariaLabel: { title: "AriaLabel", defaultValue: "", type: ControlType.String },
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
+  disabled: {
+    title: "Disabled",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
   mode: {
     title: "Mode",
     options: ["checkbox", "radio"],
     optionTitles: ["Checkbox", "Radio"],
+    defaultValue: "checkbox",
     type: ControlType.Enum
   },
   selected: { title: "Selected", type: ControlType.Number },
@@ -29,12 +34,14 @@ export const controls: Controls = {
     title: "Shape",
     options: ["default", "round", "square"],
     optionTitles: ["Default", "Round", "Square"],
+    defaultValue: "default",
     type: ControlType.Enum
   },
   size: {
     title: "Size",
     options: ["default", "compact", "large"],
     optionTitles: ["Default", "Compact", "Large"],
+    defaultValue: "default",
     type: ControlType.Enum
   }
 };

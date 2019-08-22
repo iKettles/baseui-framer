@@ -12,15 +12,24 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  text: { title: "Text", type: ControlType.String },
+  text: { title: "Text", defaultValue: "", type: ControlType.String },
   size: {
     title: "Size",
     options: ["default", "compact", "large"],
     optionTitles: ["Default", "Compact", "Large"],
+    defaultValue: "default",
     type: ControlType.Enum
   },
-  maxDropdownHeight: { title: "MaxDropdownHeight", type: ControlType.String },
-  maxDropdownWidth: { title: "MaxDropdownWidth", type: ControlType.String }
+  maxDropdownHeight: {
+    title: "MaxDropdownHeight",
+    defaultValue: "",
+    type: ControlType.String
+  },
+  maxDropdownWidth: {
+    title: "MaxDropdownWidth",
+    defaultValue: "",
+    type: ControlType.String
+  }
 };
 
 export function merge(

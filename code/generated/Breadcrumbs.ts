@@ -10,8 +10,8 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  children: { title: "Children", type: ControlType.String },
-  ariaLabel: { title: "AriaLabel", type: ControlType.String }
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
+  ariaLabel: { title: "AriaLabel", defaultValue: "", type: ControlType.String }
 };
 
 export function merge(

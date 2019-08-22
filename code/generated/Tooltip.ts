@@ -24,10 +24,15 @@ export const controls: Controls = {
     title: "AccessibilityType",
     options: ["none", "menu", "tooltip"],
     optionTitles: ["None", "Menu", "Tooltip"],
+    defaultValue: "none",
     type: ControlType.Enum
   },
-  id: { title: "Id", type: ControlType.String },
-  ignoreBoundary: { title: "IgnoreBoundary", type: ControlType.Boolean },
+  id: { title: "Id", defaultValue: "", type: ControlType.String },
+  ignoreBoundary: {
+    title: "IgnoreBoundary",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
   onMouseEnterDelay: { title: "OnMouseEnterDelay", type: ControlType.Number },
   onMouseLeaveDelay: { title: "OnMouseLeaveDelay", type: ControlType.Number },
   placement: {
@@ -62,19 +67,25 @@ export const controls: Controls = {
       "LeftBottom",
       "LeftTop"
     ],
+    defaultValue: "auto",
     type: ControlType.Enum
   },
-  showArrow: { title: "ShowArrow", type: ControlType.Boolean },
+  showArrow: {
+    title: "ShowArrow",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
   triggerType: {
     title: "TriggerType",
     options: ["click", "hover"],
     optionTitles: ["Click", "Hover"],
+    defaultValue: "click",
     type: ControlType.Enum
   },
   animateOutTime: { title: "AnimateOutTime", type: ControlType.Number },
-  children: { title: "Children", type: ControlType.String },
-  content: { title: "Content", type: ControlType.String },
-  isOpen: { title: "IsOpen", type: ControlType.Boolean }
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
+  content: { title: "Content", defaultValue: "", type: ControlType.String },
+  isOpen: { title: "IsOpen", defaultValue: false, type: ControlType.Boolean }
 };
 
 export function merge(
