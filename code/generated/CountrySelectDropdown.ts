@@ -9,7 +9,11 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  maxDropdownHeight: { title: "MaxDropdownHeight", type: ControlType.String }
+  maxDropdownHeight: {
+    title: "MaxDropdownHeight",
+    defaultValue: "",
+    type: ControlType.String
+  }
 };
 
 export function merge(

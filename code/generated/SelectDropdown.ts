@@ -20,27 +20,49 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  error: { title: "Error", type: ControlType.Boolean },
-  isLoading: { title: "IsLoading", type: ControlType.Boolean },
-  labelKey: { title: "LabelKey", type: ControlType.String },
-  maxDropdownHeight: { title: "MaxDropdownHeight", type: ControlType.String },
-  multi: { title: "Multi", type: ControlType.Boolean },
-  noResultsMsg: { title: "NoResultsMsg", type: ControlType.String },
-  required: { title: "Required", type: ControlType.Boolean },
-  searchable: { title: "Searchable", type: ControlType.Boolean },
+  error: { title: "Error", defaultValue: false, type: ControlType.Boolean },
+  isLoading: {
+    title: "IsLoading",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  labelKey: { title: "LabelKey", defaultValue: "", type: ControlType.String },
+  maxDropdownHeight: {
+    title: "MaxDropdownHeight",
+    defaultValue: "",
+    type: ControlType.String
+  },
+  multi: { title: "Multi", defaultValue: false, type: ControlType.Boolean },
+  noResultsMsg: {
+    title: "NoResultsMsg",
+    defaultValue: "",
+    type: ControlType.String
+  },
+  required: {
+    title: "Required",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  searchable: {
+    title: "Searchable",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
   size: {
     title: "Size",
     options: ["default", "compact", "large"],
     optionTitles: ["Default", "Compact", "Large"],
+    defaultValue: "default",
     type: ControlType.Enum
   },
   type: {
     title: "Type",
     options: ["select", "search"],
     optionTitles: ["Select", "Search"],
+    defaultValue: "select",
     type: ControlType.Enum
   },
-  valueKey: { title: "ValueKey", type: ControlType.String },
+  valueKey: { title: "ValueKey", defaultValue: "", type: ControlType.String },
   width: { title: "Width", type: ControlType.Number }
 };
 

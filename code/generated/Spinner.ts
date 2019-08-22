@@ -11,9 +11,9 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  size: { title: "Size", type: ControlType.String },
-  color: { title: "Color", type: ControlType.String },
-  title: { title: "Title", type: ControlType.String }
+  size: { title: "Size", defaultValue: "", type: ControlType.String },
+  color: { title: "Color", defaultValue: "", type: ControlType.String },
+  title: { title: "Title", defaultValue: "", type: ControlType.String }
 };
 
 export function merge(

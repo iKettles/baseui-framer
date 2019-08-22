@@ -13,6 +13,7 @@ export const controls: Controls = {
     title: "Size",
     options: ["default", "compact"],
     optionTitles: ["Default", "Compact"],
+    defaultValue: "default",
     type: ControlType.Enum
   }
 };

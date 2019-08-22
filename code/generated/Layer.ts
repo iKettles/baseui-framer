@@ -10,7 +10,7 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  children: { title: "Children", type: ControlType.String },
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
   index: { title: "Index", type: ControlType.Number }
 };
 

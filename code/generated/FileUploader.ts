@@ -18,19 +18,40 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  disableClick: { title: "DisableClick", type: ControlType.Boolean },
-  disabled: { title: "Disabled", type: ControlType.Boolean },
-  maxSize: { title: "MaxSize", type: ControlType.Number },
-  minSize: { title: "MinSize", type: ControlType.Number },
-  multiple: { title: "Multiple", type: ControlType.Boolean },
-  name: { title: "Name", type: ControlType.String },
-  preventDropOnDocument: {
-    title: "PreventDropOnDocument",
+  disableClick: {
+    title: "DisableClick",
+    defaultValue: false,
     type: ControlType.Boolean
   },
-  errorMessage: { title: "ErrorMessage", type: ControlType.String },
+  disabled: {
+    title: "Disabled",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  maxSize: { title: "MaxSize", type: ControlType.Number },
+  minSize: { title: "MinSize", type: ControlType.Number },
+  multiple: {
+    title: "Multiple",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  name: { title: "Name", defaultValue: "", type: ControlType.String },
+  preventDropOnDocument: {
+    title: "PreventDropOnDocument",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  errorMessage: {
+    title: "ErrorMessage",
+    defaultValue: "",
+    type: ControlType.String
+  },
   progressAmount: { title: "ProgressAmount", type: ControlType.Number },
-  progressMessage: { title: "ProgressMessage", type: ControlType.String }
+  progressMessage: {
+    title: "ProgressMessage",
+    defaultValue: "",
+    type: ControlType.String
+  }
 };
 
 export function merge(

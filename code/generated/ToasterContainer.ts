@@ -29,9 +29,14 @@ export const controls: Controls = {
       "BottomRight",
       "BottomLeft"
     ],
+    defaultValue: "top",
     type: ControlType.Enum
   },
-  usePortal: { title: "UsePortal", type: ControlType.Boolean },
+  usePortal: {
+    title: "UsePortal",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
   autoHideDuration: { title: "AutoHideDuration", type: ControlType.Number }
 };
 

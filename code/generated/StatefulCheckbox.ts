@@ -15,21 +15,35 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  disabled: { title: "Disabled", type: ControlType.Boolean },
-  isError: { title: "IsError", type: ControlType.Boolean },
+  disabled: {
+    title: "Disabled",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  isError: { title: "IsError", defaultValue: false, type: ControlType.Boolean },
   labelPlacement: {
     title: "LabelPlacement",
     options: ["left", "right", "top", "bottom"],
     optionTitles: ["Left", "Right", "Top", "Bottom"],
+    defaultValue: "left",
     type: ControlType.Enum
   },
-  isIndeterminate: { title: "IsIndeterminate", type: ControlType.Boolean },
-  children: { title: "Children", type: ControlType.String },
-  autoFocus: { title: "AutoFocus", type: ControlType.Boolean },
+  isIndeterminate: {
+    title: "IsIndeterminate",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
+  autoFocus: {
+    title: "AutoFocus",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
   checkmarkType: {
     title: "CheckmarkType",
     options: ["default", "toggle"],
     optionTitles: ["Default", "Toggle"],
+    defaultValue: "default",
     type: ControlType.Enum
   }
 };

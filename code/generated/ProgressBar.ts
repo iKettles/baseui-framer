@@ -12,10 +12,14 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  children: { title: "Children", type: ControlType.String },
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
   value: { title: "Value", type: ControlType.Number },
   successValue: { title: "SuccessValue", type: ControlType.Number },
-  showLabel: { title: "ShowLabel", type: ControlType.Boolean }
+  showLabel: {
+    title: "ShowLabel",
+    defaultValue: false,
+    type: ControlType.Boolean
+  }
 };
 
 export function merge(

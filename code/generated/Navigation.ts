@@ -9,7 +9,11 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  activeItemId: { title: "ActiveItemId", type: ControlType.String }
+  activeItemId: {
+    title: "ActiveItemId",
+    defaultValue: "",
+    type: ControlType.String
+  }
 };
 
 export function merge(

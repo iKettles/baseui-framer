@@ -12,10 +12,22 @@ export type Controls = {
  * Contains the inferred property controls.
  */
 export const controls: Controls = {
-  accordion: { title: "Accordion", type: ControlType.Boolean },
-  children: { title: "Children", type: ControlType.String },
-  disabled: { title: "Disabled", type: ControlType.Boolean },
-  renderPanelContent: { title: "RenderPanelContent", type: ControlType.Boolean }
+  accordion: {
+    title: "Accordion",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  children: { title: "Children", defaultValue: "", type: ControlType.String },
+  disabled: {
+    title: "Disabled",
+    defaultValue: false,
+    type: ControlType.Boolean
+  },
+  renderPanelContent: {
+    title: "RenderPanelContent",
+    defaultValue: false,
+    type: ControlType.Boolean
+  }
 };
 
 export function merge(

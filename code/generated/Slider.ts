@@ -15,7 +15,11 @@ export const controls: Controls = {
   min: { title: "Min", type: ControlType.Number },
   max: { title: "Max", type: ControlType.Number },
   step: { title: "Step", type: ControlType.Number },
-  disabled: { title: "Disabled", type: ControlType.Boolean }
+  disabled: {
+    title: "Disabled",
+    defaultValue: false,
+    type: ControlType.Boolean
+  }
 };
 
 export function merge(

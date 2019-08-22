@@ -15,10 +15,19 @@ export const controls: Controls = {
     title: "Size",
     options: ["default", "compact", "large"],
     optionTitles: ["Default", "Compact", "Large"],
+    defaultValue: "default",
     type: ControlType.Enum
   },
-  maxDropdownWidth: { title: "MaxDropdownWidth", type: ControlType.String },
-  maxDropdownHeight: { title: "MaxDropdownHeight", type: ControlType.String }
+  maxDropdownWidth: {
+    title: "MaxDropdownWidth",
+    defaultValue: "",
+    type: ControlType.String
+  },
+  maxDropdownHeight: {
+    title: "MaxDropdownHeight",
+    defaultValue: "",
+    type: ControlType.String
+  }
 };
 
 export function merge(
