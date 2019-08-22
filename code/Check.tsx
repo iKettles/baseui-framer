@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/icon";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/Check";
 import { withHOC } from "./withHOC";
