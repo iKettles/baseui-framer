@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/datepicker";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/Datepicker";
 import { withHOC } from "./withHOC";
@@ -10,7 +10,9 @@ const style: React.CSSProperties = {
 };
 
 const InnerDatepicker: React.SFC = props => {
-  return <System.Datepicker {...props} style={style} />;
+  const [value, setValue] = React.useState(null);
+  const onChange = React.useCallback(({ date }) => setValue(date), []);
+  return <System.Datepicker {...props} style={style} value={value} onChange={onChange} />;
 };
 
 export const Datepicker = withHOC(InnerDatepicker);
