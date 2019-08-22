@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/payment-card";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/PaymentCard";
 import { withHOC } from "./withHOC";
@@ -10,32 +10,25 @@ const style: React.CSSProperties = {
 };
 
 const InnerPaymentCard: React.SFC = props => {
-  return <System.PaymentCard {...props} style={style} />;
+  return <System.PaymentCard {...props} />;
 };
 
 export const PaymentCard = withHOC(InnerPaymentCard);
 
 PaymentCard.defaultProps = {
-  width: 150,
+  width: 250,
   height: 50
 };
 
 addPropertyControls(PaymentCard, {
-  startEnhancer: merge(controls.startEnhancer, {}),
-  endEnhancer: merge(controls.endEnhancer, {}),
-  adjoined: merge(controls.adjoined, {}),
-  autoComplete: merge(controls.autoComplete, {}),
-  autoFocus: merge(controls.autoFocus, {}),
   clearable: merge(controls.clearable, {}),
   disabled: merge(controls.disabled, {}),
   error: merge(controls.error, {}),
   positive: merge(controls.positive, {}),
-  id: merge(controls.id, {}),
-  name: merge(controls.name, {}),
-  placeholder: merge(controls.placeholder, {}),
-  required: merge(controls.required, {}),
+  placeholder: merge(controls.placeholder, {
+    defaultValue: "0000000000000000"
+  }),
   size: merge(controls.size, {}),
-  type: merge(controls.type, {}),
-  value: merge(controls.value, {}),
+  value: merge(controls.value, { defaultValue: "xxxxxxxxxxxxxxxx" }),
   rows: merge(controls.rows, {})
 });
