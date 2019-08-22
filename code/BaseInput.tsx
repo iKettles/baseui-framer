@@ -58,7 +58,12 @@ addPropertyControls(BaseInput, {
   placeholder: merge(controls.placeholder, {}),
   required: merge(controls.required, {}),
   size: merge(controls.size, {}),
-  type: merge(controls.type, {}),
+  type: {
+    title: "Type",
+    options: ["text", "textarea", "password"],
+    optionTitles: ["Text", "Textarea", "Password"],
+    type: ControlType.Enum
+  },
   value: merge(controls.value, {}),
   rows: merge(controls.rows, {}),
   ...ThemePropertyControl

@@ -47,9 +47,7 @@ export const controls: Controls = {
   },
   type: {
     title: "Type",
-    options: ["text", "textarea", "password"],
-    optionTitles: ["Text", "Textarea", "Password"],
-    type: ControlType.Enum
+    type: ControlType.String
   },
   value: { title: "Value", type: ControlType.String },
   rows: { title: "Rows", type: ControlType.Number }
