@@ -43,14 +43,12 @@ Card.defaultProps = {
 addPropertyControls(Card, {
   action: merge(controls.action, {}),
   children: merge(controls.children, {}),
-  headerImage: {
-    ...merge(controls.headerImage, {}),
+  headerImage: merge(controls.headerImage, {
     type: ControlType.Image
-  },
-  thumbnail: {
-    ...merge(controls.thumbnail, {}),
+  }),
+  thumbnail: merge(controls.thumbnail, {
     type: ControlType.Image
-  },
+  }),
   title: merge(controls.title, {}),
   bodyText: {
     title: 'Body Text',
