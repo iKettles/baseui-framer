@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/toast";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/Toast";
 import { withHOC } from "./withHOC";
@@ -9,22 +9,28 @@ const style: React.CSSProperties = {
   height: "100%"
 };
 
-const InnerToast: React.SFC = props => {
-  return <System.Toast {...props} style={style} />;
+const InnerToast: React.SFC<any> = ({ text, ...props }) => {
+  return <System.Toast {...props}>{text}</System.Toast>;
 };
 
 export const Toast = withHOC(InnerToast);
 
 Toast.defaultProps = {
-  width: 150,
+  width: 290,
   height: 50
 };
 
 addPropertyControls(Toast, {
-  autoHideDuration: merge(controls.autoHideDuration, {}),
-  children: merge(controls.children, {}),
-  closeable: merge(controls.closeable, {}),
-  kind: merge(controls.kind, {}),
-  notificationType: merge(controls.notificationType, {}),
-  key: merge(controls.key, {})
+  autoHideDuration: {
+    type: ControlType.Number,
+    defaultValue: 0,
+    min: 0,
+    max: 100
+  },
+  text: {
+    type: ControlType.String,
+    defaultValue: "Warning!, something happened"
+  },
+  closeable: merge(controls.closeable, { defaultValue: true }),
+  kind: merge(controls.kind, { defaultValue: System.KIND.info })
 });
