@@ -807,7 +807,7 @@
       "ignore": true
     },
     "CloseIconSvg": {
-      "ignore": false
+      "ignore": true
     },
     "StatefulTooltip": {
       "ignore": false
