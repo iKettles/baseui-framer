@@ -477,10 +477,10 @@
       "ignore": false
     },
     "CountrySelect": {
-      "ignore": false
+      "ignore": true
     },
     "CountrySelectDropdown": {
-      "ignore": false
+      "ignore": true
     },
     "Flag": {
       "ignore": false
