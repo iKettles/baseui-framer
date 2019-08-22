@@ -15,7 +15,7 @@ const InnerButton: React.SFC = props => {
   delete filteredProps.willChangeTransform;
   return (
     <System.Button {...filteredProps} style={style}>
-      Button
+      {props.text}
     </System.Button>
   );
 };
@@ -47,5 +47,10 @@ addPropertyControls(Button, {
   size: merge(controls.size, {}),
   startEnhancer: merge(controls.startEnhancer, {}),
   type: merge(controls.type, {}),
+  text: {
+    title: 'Text',
+    type: ControlType.String,
+    defaultValue: 'Button'
+  },
   ...ThemePropertyControl
 });
