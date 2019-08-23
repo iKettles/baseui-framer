@@ -14,7 +14,7 @@ export function withHOC(Component): React.SFC {
     }, []);
 
     return (
-      <ThemeProvider theme={currentTheme}>
+      <ThemeProvider theme={props.theme === 'inherit' ? currentTheme : props.theme}>
         <Component {...props} />
       </ThemeProvider>
     )
