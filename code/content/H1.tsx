@@ -2,6 +2,7 @@ import * as System from "baseui/typography";
 import { addPropertyControls, ControlType } from "framer";
 import * as React from "react";
 import { withHOC } from "../withHOC";
+import { TextPropertyControl, ColorPropertyControl } from "../utils/PropertyControls";
 
 const InnerH1: React.SFC<any> = ({ text, ["children"]: _, ...props }) => {
   return <System.H1 {...props}>{text}</System.H1>;
@@ -15,6 +16,6 @@ H1.defaultProps = {
 };
 
 addPropertyControls(H1, {
-  color: { type: ControlType.Color, defaultValue: "#000000" },
-  text: { type: ControlType.String, defaultValue: "HEADING 1" }
+  ...TextPropertyControl,
+  ...ColorPropertyControl
 });

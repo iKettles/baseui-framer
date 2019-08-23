@@ -13,6 +13,23 @@ export const ThemePropertyControl: PropertyControls = {
 export const LabelPropertyControl: PropertyControls = {
   label: {
     title: "Label",
-    type: ControlType.String
+    type: ControlType.String,
+    defaultValue: "Default Label"
+  }
+}
+
+export const TextPropertyControl: PropertyControls = {
+  text: {
+    title: "Text",
+    type: ControlType.String,
+    defaultValue: "Default Text"
+  }
+}
+
+export const ColorPropertyControl: PropertyControls = {
+  color: {
+    title: "Color",
+    type: ControlType.Color,
+    defaultValue: "#000000"
   }
 }
