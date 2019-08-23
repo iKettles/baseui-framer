@@ -10,7 +10,16 @@ const style: React.CSSProperties = {
 };
 
 const InnerCheckbox: React.SFC = props => {
-  return <System.Checkbox {...props} style={style} />;
+  const [checked, setChecked] = React.useState(props.checked);
+  const onChange = React.useCallback(() => setChecked(!checked), [checked]);
+
+  React.useEffect(() => setChecked(props.checked), [props.checked])
+
+  return (
+    <System.Checkbox {...props} style={style} checked={checked} onChange={onChange}>
+      {props.label}
+    </System.Checkbox>  
+  );
 };
 
 export const Checkbox = withHOC(InnerCheckbox);
@@ -32,5 +41,9 @@ addPropertyControls(Checkbox, {
   value: merge(controls.value, {}),
   isIndeterminate: merge(controls.isIndeterminate, {}),
   labelPlacement: merge(controls.labelPlacement, {}),
-  checkmarkType: merge(controls.checkmarkType, {})
+  checkmarkType: merge(controls.checkmarkType, {}),
+  label: {
+    type: ControlType.String,
+    title: 'Label'
+  }
 });
