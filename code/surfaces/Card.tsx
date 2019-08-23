@@ -9,7 +9,14 @@ import { StyledBody } from "../StyledBody";
 import { filterProps } from "../utils/FilterProps";
 import { Button, ButtonPropertyControls } from "../inputs/Button";
 
-const excludedProps = ['__serverResources', '__slotKeys', 'willChangeTransform', 'buttonText', 'bodyText', 'buttonKind'];
+const excludedProps = [
+  "__serverResources",
+  "__slotKeys",
+  "willChangeTransform",
+  "buttonText",
+  "bodyText",
+  "buttonKind"
+];
 
 const style: React.CSSProperties = {
   width: "100%",
@@ -20,14 +27,16 @@ const InnerCard: React.SFC = props => {
   return (
     <System.Card {...filterProps(props, excludedProps)} style={style}>
       {props.bodyText && (
-        <StyledBody>
-          {props.bodyText}
-        </StyledBody>
+        <System.StyledBody>{props.bodyText}</System.StyledBody>
       )}
       {props.buttonText && (
-        <StyledAction>
-          <Button theme={props.theme} text={props.buttonText} kind={props.buttonKind}/>
-        </StyledAction>
+        <System.StyledAction>
+          <Button
+            theme={props.theme}
+            text={props.buttonText}
+            kind={props.buttonKind}
+          />
+        </System.StyledAction>
       )}
     </System.Card>
   );
@@ -51,16 +60,16 @@ addPropertyControls(Card, {
   }),
   title: merge(controls.title, {}),
   bodyText: {
-    title: 'Body Text',
+    title: "Body Text",
     type: ControlType.String
   },
   buttonText: {
-    title: 'Button Text',
+    title: "Button Text",
     type: ControlType.String
   },
   buttonKind: {
     ...ButtonPropertyControls.kind,
-    title: 'Button Kind',
+    title: "Button Kind"
   },
   ...ThemePropertyControl
 });
