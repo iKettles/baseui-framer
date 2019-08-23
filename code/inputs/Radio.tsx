@@ -1,19 +1,20 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/radio";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "../generated/Radio";
 import { withHOC } from "../withHOC";
 import { LabelPropertyControl } from "../utils/PropertyControls";
+import { useManagedState } from "../utils/useManagedState";
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
-
-const InnerRadio: React.SFC = props => {
+const InnerRadio: React.SFC<any> = ({ checked, label, ...props }) => {
+  const [currentlyChecked, setChecked] = useManagedState(checked);
   return (
-    <System.Radio {...props} style={style}>
-      {props.label}
+    <System.Radio
+      checked={currentlyChecked}
+      onChange={e => setChecked(e.target["value"])}
+      {...props}
+    >
+      {label}
     </System.Radio>
   );
 };
