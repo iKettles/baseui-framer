@@ -1,16 +1,13 @@
-import * as React from "react";
 import * as System from "baseui/rating";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
+import { addPropertyControls } from "framer";
+import * as React from "react";
 import { controls, merge } from "../generated/StarRating";
 import { withHOC } from "../withHOC";
-
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
+import { useManagedState } from "../utils/useManagedState";
 
 const InnerStarRating: React.SFC<any> = ({ value, ...props }) => {
-  const [currentValue, setValue] = React.useState(value);
+  const [currentValue, setValue] = useManagedState(value);
+
   return (
     <System.StarRating
       value={currentValue}
@@ -28,10 +25,16 @@ StarRating.defaultProps = {
 };
 
 addPropertyControls(StarRating, {
-  value: merge(controls.value, { min: 0, max: 100, defaultValue: 2 }),
+  value: merge(controls.value, {
+    min: 0,
+    max: 100,
+    defaultValue: 2,
+    displayStepper: true
+  }),
   numItems: merge(controls.numItems, {
     min: 0,
     max: 100,
-    defaultValue: 5
+    defaultValue: 5,
+    displayStepper: true
   })
 });

@@ -3,14 +3,18 @@ import { addPropertyControls } from "framer";
 import * as React from "react";
 import { controls, merge } from "../generated/TimePicker";
 import { withHOC } from "../withHOC";
+import { useManagedState } from "../utils/useManagedState";
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
+const InnerTimePicker: React.SFC<any> = ({ value, ...props }) => {
+  const [currentValue, setValue] = useManagedState(value);
 
-const InnerTimePicker: React.SFC = props => {
-  return <System.TimePicker {...props} />;
+  return (
+    <System.TimePicker
+      value={currentValue}
+      onChange={e => setValue(e)}
+      {...props}
+    />
+  );
 };
 
 export const TimePicker = withHOC(InnerTimePicker);

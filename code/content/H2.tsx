@@ -15,5 +15,6 @@ H2.defaultProps = {
 };
 
 addPropertyControls(H2, {
-  text: { type: ControlType.String, defaultValue: "HEADING 2" }
+  color: { type: ControlType.Color, defaultValue: "#000000" },
+  text: { type: ControlType.String, defaultValue: "HEADING 1" }
 });

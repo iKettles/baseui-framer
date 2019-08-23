@@ -323,3 +323,8 @@ export function City() {
     </svg>
   );
 }
+
+City.defaultProps = {
+  height: 197,
+  width: 1560
+};

@@ -15,5 +15,6 @@ H3.defaultProps = {
 };
 
 addPropertyControls(H3, {
+  color: { type: ControlType.Color, defaultValue: "#000000" },
   text: { type: ControlType.String, defaultValue: "HEADING 3" }
 });

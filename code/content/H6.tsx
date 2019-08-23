@@ -15,5 +15,6 @@ H6.defaultProps = {
 };
 
 addPropertyControls(H6, {
+  color: { type: ControlType.Color, defaultValue: "#000000" },
   text: { type: ControlType.String, defaultValue: "HEADING 6" }
 });

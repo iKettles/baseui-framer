@@ -3,17 +3,16 @@ import { addPropertyControls } from "framer";
 import * as React from "react";
 import { controls, merge } from "../generated/TimezonePicker";
 import { withHOC } from "../withHOC";
+import { useManagedState } from "../utils/useManagedState";
 
 const InnerTimezonePicker: React.SFC<any> = ({ value, ...props }) => {
-  const [currentValue, setValue] = React.useState(value);
+  const [currentValue, setValue] = useManagedState(value);
 
   return (
     <System.TimezonePicker
-      onChange={e => {
-        console.log(e), setValue(e.id);
-      }}
-      {...props}
       value={currentValue}
+      onChange={e => setValue(e.id)}
+      {...props}
     />
   );
 };

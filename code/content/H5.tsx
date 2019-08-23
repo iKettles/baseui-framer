@@ -15,5 +15,6 @@ H5.defaultProps = {
 };
 
 addPropertyControls(H5, {
+  color: { type: ControlType.Color, defaultValue: "#000000" },
   text: { type: ControlType.String, defaultValue: "HEADING 5" }
 });
