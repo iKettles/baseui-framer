@@ -1,6 +1,12 @@
 import * as React from "react";
 import * as System from "baseui/button";
-import { ControlType, PropertyControls, addPropertyControls, ControlDescription, EnumControlDescription } from "framer";
+import {
+  ControlType,
+  PropertyControls,
+  addPropertyControls,
+  ControlDescription,
+  EnumControlDescription
+} from "framer";
 import { controls, merge } from "./generated/Button";
 import { withHOC } from "./withHOC";
 import { ThemePropertyControl } from "./utils/PropertyControls";
@@ -13,7 +19,10 @@ const style: React.CSSProperties = {
 
 export const InnerButton: React.SFC = props => {
   return (
-    <System.Button {...filterProps(props, ['willChangeTransform'])} style={style}>
+    <System.Button
+      {...filterProps(props, ["willChangeTransform"])}
+      style={style}
+    >
       {props.text}
     </System.Button>
   );
@@ -30,7 +39,7 @@ Button.defaultProps = {
   kind: System.KIND.primary,
   overrides: {},
   shape: System.SHAPE.default,
-  size: System.SIZE.default,
+  size: System.SIZE.default
 };
 
 export const ButtonPropertyControls: PropertyControls = {
@@ -47,9 +56,9 @@ export const ButtonPropertyControls: PropertyControls = {
   startEnhancer: merge(controls.startEnhancer, {}),
   type: merge(controls.type, {}),
   text: {
-    title: 'Text',
+    title: "Text",
     type: ControlType.String,
-    defaultValue: 'Button'
+    defaultValue: "Button"
   },
   ...ThemePropertyControl
 };
