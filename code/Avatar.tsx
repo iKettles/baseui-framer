@@ -1,27 +1,24 @@
+import * as System from "baseui/avatar";
+import { addPropertyControls, ControlType } from "framer";
 import * as React from "react";
-import * as System from "baseui";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/Avatar";
 import { withHOC } from "./withHOC";
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
-
-const InnerAvatar: React.SFC = props => {
-  return <System.Avatar {...props} style={style} />;
+const InnerAvatar: React.SFC<any> = ({ width, height, ...props }) => {
+  return <System.Avatar size={`${Math.min(width, height)}px`} {...props} />;
 };
 
 export const Avatar = withHOC(InnerAvatar);
 
 Avatar.defaultProps = {
-  width: 150,
+  width: 50,
   height: 50
 };
 
 addPropertyControls(Avatar, {
-  name: merge(controls.name, {}),
-  size: merge(controls.size, {}),
-  src: merge(controls.src, {})
+  name: merge(controls.name, { defaultValue: "John Doe" }),
+  src: {
+    type: ControlType.String,
+    defaultValue: "https://api.adorable.io/avatars/285/1@adorable.io.png"
+  }
 });
