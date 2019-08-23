@@ -1,41 +1,35 @@
+import * as System from "baseui/pin-code";
+import { addPropertyControls, ControlType } from "framer";
 import * as React from "react";
-import * as System from "baseui";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/PinCode";
+import { useManagedState } from "./utils/useManagedState";
 import { withHOC } from "./withHOC";
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
+const InnerPinCode: React.SFC<any> = ({ values, ...props }) => {
+  const [currentValues, setValues] = useManagedState(values);
 
-const InnerPinCode: React.SFC = props => {
-  return <System.PinCode {...props} style={style} />;
+  return (
+    <System.PinCode
+      values={currentValues}
+      onChange={e => setValues(e.values)}
+      {...props}
+    />
+  );
 };
 
 export const PinCode = withHOC(InnerPinCode);
 
 PinCode.defaultProps = {
   width: 150,
-  height: 50
+  height: 56
 };
 
 addPropertyControls(PinCode, {
   positive: merge(controls.positive, {}),
-  startEnhancer: merge(controls.startEnhancer, {}),
-  endEnhancer: merge(controls.endEnhancer, {}),
-  adjoined: merge(controls.adjoined, {}),
-  autoComplete: merge(controls.autoComplete, {}),
   autoFocus: merge(controls.autoFocus, {}),
   clearable: merge(controls.clearable, {}),
   disabled: merge(controls.disabled, {}),
   error: merge(controls.error, {}),
-  id: merge(controls.id, {}),
-  name: merge(controls.name, {}),
-  placeholder: merge(controls.placeholder, {}),
-  required: merge(controls.required, {}),
-  size: merge(controls.size, {}),
-  type: merge(controls.type, {}),
-  rows: merge(controls.rows, {}),
-  manageFocus: merge(controls.manageFocus, {})
+  placeholder: merge(controls.placeholder, { defaultValue: "." }),
+  size: merge(controls.size, {})
 });
