@@ -1,8 +1,9 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/icon";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/ChevronDown";
 import { withHOC } from "./withHOC";
+import { filterProps } from "./utils/FilterProps";
 
 const style: React.CSSProperties = {
   width: "100%",
@@ -10,7 +11,7 @@ const style: React.CSSProperties = {
 };
 
 const InnerChevronDown: React.SFC = props => {
-  return <System.ChevronDown {...props} style={style} />;
+  return <System.ChevronDown {...filterProps(props, ['willChangeTransform'])} style={style} />;
 };
 
 export const ChevronDown = withHOC(InnerChevronDown);

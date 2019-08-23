@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/card";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/StyledAction";
 import { withHOC } from "./withHOC";
@@ -10,7 +10,11 @@ const style: React.CSSProperties = {
 };
 
 const InnerStyledAction: React.SFC = props => {
-  return <System.StyledAction {...props} style={style} />;
+  return (
+    <System.StyledAction {...props} style={style}>
+      {props.children}
+    </System.StyledAction>
+  );
 };
 
 export const StyledAction = withHOC(InnerStyledAction);

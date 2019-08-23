@@ -1,8 +1,9 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/typography";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/Caption2";
 import { withHOC } from "./withHOC";
+import { filterProps } from "./utils/FilterProps";
 
 const style: React.CSSProperties = {
   width: "100%",
@@ -10,7 +11,11 @@ const style: React.CSSProperties = {
 };
 
 const InnerCaption2: React.SFC = props => {
-  return <System.Caption2 {...props} style={style} />;
+  return (
+    <System.Caption2 {...filterProps(props, ['willChangeTransform'])} style={style}>
+      {props.text}
+    </System.Caption2>
+  );
 };
 
 export const Caption2 = withHOC(InnerCaption2);
@@ -57,5 +62,9 @@ addPropertyControls(Caption2, {
   left: merge(controls.left, {}),
   top: merge(controls.top, {}),
   right: merge(controls.right, {}),
-  bottom: merge(controls.bottom, {})
+  bottom: merge(controls.bottom, {}),
+  text: {
+    title: 'Text',
+    type: ControlType.String
+  }
 });

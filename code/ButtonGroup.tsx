@@ -14,7 +14,7 @@ const style: React.CSSProperties = {
 const InnerButtonGroup: React.SFC = props => {
   return (
     <System.ButtonGroup {...props} style={style}>
-      {props.buttons.map((button, index) => (
+      {props.buttons && props.buttons.map((button, index) => (
         <Button key={index} kind={props.buttonKind} text={button}></Button>
       ))}
     </System.ButtonGroup>
