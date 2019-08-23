@@ -7,7 +7,7 @@ import { ThemePropertyControl } from "./utils/PropertyControls";
 import { StyledAction } from "./StyledAction";
 import { StyledBody } from "./StyledBody";
 import { filterProps } from "./utils/FilterProps";
-import { Button, ButtonPropertyControls } from "./Button";
+import { Button, ButtonPropertyControls } from "./inputs/Button";
 
 const excludedProps = ['__serverResources', '__slotKeys', 'willChangeTransform', 'buttonText', 'bodyText', 'buttonKind'];
 

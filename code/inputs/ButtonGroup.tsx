@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as System from "baseui/button-group";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/ButtonGroup";
-import { withHOC } from "./withHOC";
-import { Button } from "./Button";
+import { controls, merge } from "../generated/ButtonGroup";
+import { withHOC } from "../withHOC";
+import { Button } from "../inputs/Button";
 import { ButtonPropertyControls } from "./Button";
 
 const style: React.CSSProperties = {

@@ -7,10 +7,10 @@ import {
   ControlDescription,
   EnumControlDescription
 } from "framer";
-import { controls, merge } from "./generated/Button";
-import { withHOC } from "./withHOC";
-import { ThemePropertyControl } from "./utils/PropertyControls";
-import { filterProps } from "./utils/FilterProps";
+import { controls, merge } from "../generated/Button";
+import { withHOC } from "../withHOC";
+import { ThemePropertyControl } from "../utils/PropertyControls";
+import { filterProps } from "../utils/FilterProps";
 
 const style: React.CSSProperties = {
   width: "100%",
