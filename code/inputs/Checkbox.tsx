@@ -4,6 +4,7 @@ import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "../generated/Checkbox";
 import { withHOC } from "../withHOC";
 import { useManagedState } from "../utils/useManagedState";
+import { LabelPropertyControl } from "../utils/PropertyControls";
 
 const InnerCheckbox: React.SFC<any> = ({ checked, label, ...props }) => {
   const [currentlyChecked, setChecked] = useManagedState(checked);
@@ -34,8 +35,5 @@ addPropertyControls(Checkbox, {
   isIndeterminate: merge(controls.isIndeterminate, {}),
   labelPlacement: merge(controls.labelPlacement, {}),
   checkmarkType: merge(controls.checkmarkType, {}),
-  label: {
-    type: ControlType.String,
-    title: "Label"
-  }
+  ...LabelPropertyControl
 });

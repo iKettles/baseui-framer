@@ -9,3 +9,10 @@ export const ThemePropertyControl: PropertyControls = {
     type: ControlType.Enum
   }
 }
+
+export const LabelPropertyControl: PropertyControls = {
+  label: {
+    title: "Label",
+    type: ControlType.String
+  }
+}

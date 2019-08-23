@@ -1,8 +1,9 @@
 import * as React from "react";
 import * as System from "baseui";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/Radio";
-import { withHOC } from "./withHOC";
+import { controls, merge } from "../generated/Radio";
+import { withHOC } from "../withHOC";
+import { LabelPropertyControl } from "../utils/PropertyControls";
 
 const style: React.CSSProperties = {
   width: "100%",
@@ -10,7 +11,11 @@ const style: React.CSSProperties = {
 };
 
 const InnerRadio: React.SFC = props => {
-  return <System.Radio {...props} style={style} />;
+  return (
+    <System.Radio {...props} style={style}>
+      {props.label}
+    </System.Radio>
+  );
 };
 
 export const Radio = withHOC(InnerRadio);
@@ -30,5 +35,6 @@ addPropertyControls(Radio, {
   labelPlacement: merge(controls.labelPlacement, {}),
   name: merge(controls.name, {}),
   required: merge(controls.required, {}),
-  value: merge(controls.value, {})
+  value: merge(controls.value, {}),
+  ...LabelPropertyControl
 });
