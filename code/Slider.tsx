@@ -1,16 +1,25 @@
 import * as React from "react";
-import * as System from "baseui";
+import * as System from "baseui/slider";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/Slider";
 import { withHOC } from "./withHOC";
+import { useManagedState } from "./utils/useManagedState";
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
+const InnerSlider: React.SFC<any> = ({ valueFrom, valueTo, ...props }) => {
+  const [currentValue, setValue] = useManagedState<number[]>([
+    valueFrom,
+    valueTo
+  ]);
 
-const InnerSlider: React.SFC = props => {
-  return <System.Slider {...props} style={style} />;
+  return (
+    <System.Slider
+      value={currentValue}
+      onChange={e => {
+        setValue(e.value);
+      }}
+      {...props}
+    />
+  );
 };
 
 export const Slider = withHOC(InnerSlider);
@@ -21,8 +30,14 @@ Slider.defaultProps = {
 };
 
 addPropertyControls(Slider, {
-  min: merge(controls.min, {}),
-  max: merge(controls.max, {}),
-  step: merge(controls.step, {}),
+  valueFrom: {
+    type: ControlType.Number,
+    defaultValue: 1,
+    displayStepper: true
+  },
+  valueTo: { type: ControlType.Number, defaultValue: 2, displayStepper: true },
+  min: merge(controls.min, { defaultValue: 0, displayStepper: true }),
+  max: merge(controls.max, { defaultValue: 10, displayStepper: true }),
+  step: merge(controls.step, { defaultValue: 1, displayStepper: true }),
   disabled: merge(controls.disabled, {})
 });
