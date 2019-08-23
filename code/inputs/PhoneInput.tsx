@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as System from "baseui/phone-input";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/PhoneInput";
-import { withHOC } from "./withHOC";
+import { controls, merge } from "../generated/PhoneInput";
+import { withHOC } from "../withHOC";
 
 const InnerPhoneInput: React.SFC<any> = ({ text, ...props }) => {
   const [currentText, setText] = React.useState(text);

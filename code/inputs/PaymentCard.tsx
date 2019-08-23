@@ -1,13 +1,8 @@
 import * as React from "react";
 import * as System from "baseui/payment-card";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/PaymentCard";
-import { withHOC } from "./withHOC";
-
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
+import { addPropertyControls } from "framer";
+import { controls, merge } from "../generated/PaymentCard";
+import { withHOC } from "../withHOC";
 
 const InnerPaymentCard: React.SFC = props => {
   return <System.PaymentCard {...props} />;

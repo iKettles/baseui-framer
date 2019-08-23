@@ -1,16 +1,19 @@
 import * as System from "baseui/textarea";
 import { addPropertyControls } from "framer";
 import * as React from "react";
-import { controls, merge } from "./generated/Textarea";
-import { withHOC } from "./withHOC";
+import { controls, merge } from "../generated/Textarea";
+import { withHOC } from "../withHOC";
+import { useManagedState } from "../utils/useManagedState";
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
-
-const InnerTextarea: React.SFC<any> = props => {
-  return <System.Textarea {...props} style={style} />;
+const InnerTextarea: React.SFC<any> = ({ value, ...props }) => {
+  const [currentValue, setValue] = useManagedState(value);
+  return (
+    <System.Textarea
+      value={currentValue}
+      onChange={e => setValue(e.target["value"])}
+      {...props}
+    />
+  );
 };
 
 export const Textarea = withHOC(InnerTextarea);
@@ -21,8 +24,12 @@ Textarea.defaultProps = {
 };
 
 addPropertyControls(Textarea, {
-  rows: merge(controls.rows, { defaultValue: 5, min: 0, max: 100 }),
-  clearable: merge(controls.clearable, {}),
+  rows: merge(controls.rows, {
+    defaultValue: 5,
+    min: 0,
+    max: 100,
+    displayStepper: true
+  }),
   disabled: merge(controls.disabled, {}),
   error: merge(controls.error, {}),
   positive: merge(controls.positive, {}),
