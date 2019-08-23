@@ -31,7 +31,6 @@ addPropertyControls(Checkbox, {
   required: merge(controls.required, {}),
   isError: merge(controls.isError, {}),
   type: merge(controls.type, {}),
-  label: { type: ControlType.String, defaultValue: "Checked" },
   isIndeterminate: merge(controls.isIndeterminate, {}),
   labelPlacement: merge(controls.labelPlacement, {}),
   checkmarkType: merge(controls.checkmarkType, {}),
