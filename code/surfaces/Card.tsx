@@ -1,13 +1,13 @@
 import * as React from "react";
 import * as System from "baseui/card";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/Card";
-import { withHOC } from "./withHOC";
-import { ThemePropertyControl } from "./utils/PropertyControls";
-import { StyledAction } from "./StyledAction";
-import { StyledBody } from "./StyledBody";
-import { filterProps } from "./utils/FilterProps";
-import { Button, ButtonPropertyControls } from "./inputs/Button";
+import { controls, merge } from "../generated/Card";
+import { withHOC } from "../withHOC";
+import { ThemePropertyControl } from "../utils/PropertyControls";
+import { StyledAction } from "../StyledAction";
+import { StyledBody } from "../StyledBody";
+import { filterProps } from "../utils/FilterProps";
+import { Button, ButtonPropertyControls } from "../inputs/Button";
 
 const excludedProps = ['__serverResources', '__slotKeys', 'willChangeTransform', 'buttonText', 'bodyText', 'buttonKind'];
 
