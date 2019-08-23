@@ -1,3 +1,13 @@
-import {Client as Styletron} from 'styletron-engine-atomic';
+import { Client as Styletron } from 'styletron-engine-atomic';
 
-export const engine = new Styletron();
+declare global {
+  interface Window {
+    styletronEngine: Styletron;
+  }
+}
+
+if(!window.styletronEngine) {
+  window.styletronEngine = new Styletron();
+}
+
+export const engine = window.styletronEngine;
