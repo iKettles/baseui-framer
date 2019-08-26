@@ -1,28 +1,14 @@
 import * as React from "react";
 import * as System from "baseui/button";
-import {
-  ControlType,
-  PropertyControls,
-  addPropertyControls,
-  ControlDescription,
-  EnumControlDescription
-} from "framer";
+import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "../generated/Button";
 import { withHOC } from "../withHOC";
 import { ThemePropertyControl } from "../utils/PropertyControls";
 import { filterProps } from "../utils/FilterProps";
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
-
-export const InnerButton: React.SFC = props => {
+const InnerButton: React.SFC<any> = props => {
   return (
-    <System.Button
-      {...filterProps(props, ["willChangeTransform"])}
-      style={style}
-    >
+    <System.Button {...filterProps(props, ["willChangeTransform"])}>
       {props.text}
     </System.Button>
   );
