@@ -65,6 +65,6 @@ addPropertyControls(BaseInput, {
     type: ControlType.Enum,
   },
   value: merge(controls.value, {}),
-  rows: merge(controls.rows, {}),
+  rows: merge(controls.rows, { hidden: props => props.type !== "textarea" }),
   ...ThemePropertyControl,
 })

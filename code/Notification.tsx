@@ -1,30 +1,28 @@
 import * as React from "react"
-import * as System from "baseui"
+import * as System from "baseui/notification"
 import { ControlType, PropertyControls, addPropertyControls } from "framer"
 import { controls, merge } from "./generated/Notification"
 import { withHOC } from "./withHOC"
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
-}
-
-const InnerNotification: React.SFC = props => {
-  return <System.Notification {...props} style={style} />
+const InnerNotification: React.SFC<any> = ({ title, message, ...props }) => {
+  return (
+    <System.Notification {...props}>
+      <b>{title}</b> {message}
+    </System.Notification>
+  )
 }
 
 export const Notification = withHOC(InnerNotification)
 
 Notification.defaultProps = {
-  width: 150,
-  height: 50,
+  width: 290,
+  height: 90,
 }
 
 addPropertyControls(Notification, {
-  autoHideDuration: merge(controls.autoHideDuration, {}),
-  children: merge(controls.children, {}),
+  title: { type: ControlType.String, defaultValue: "Title!" },
+  message: { type: ControlType.String, defaultValue: "You're being notified of something important" },
   closeable: merge(controls.closeable, {}),
   kind: merge(controls.kind, {}),
   notificationType: merge(controls.notificationType, {}),
-  key: merge(controls.key, {}),
 })
