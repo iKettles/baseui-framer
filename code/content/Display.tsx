@@ -4,8 +4,8 @@ import { addPropertyControls } from "framer"
 import { withHOC } from "../withHOC"
 import { TextPropertyControl, ColorPropertyControl } from "../utils/PropertyControls"
 
-const InnerDisplay: React.SFC = props => {
-  return <System.Display {...props}>{props.text}</System.Display>
+const InnerDisplay: React.SFC<any> = ({ text, ["children"]: _, willChangeTransform: __, ...props }) => {
+  return <System.Display {...props}>{text}</System.Display>
 }
 
 export const Display = withHOC(InnerDisplay)

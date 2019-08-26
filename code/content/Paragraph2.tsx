@@ -4,8 +4,8 @@ import { addPropertyControls } from "framer"
 import { withHOC } from "../withHOC"
 import { TextPropertyControl, ColorPropertyControl } from "../utils/PropertyControls"
 
-const InnerParagraph2: React.SFC = props => {
-  return <System.Paragraph2 {...props}>{props.text}</System.Paragraph2>
+const InnerParagraph2: React.SFC<any> = ({ text, ["children"]: _, willChangeTransform: __, ...props }) => {
+  return <System.Paragraph2 {...props}>{text}</System.Paragraph2>
 }
 
 export const Paragraph2 = withHOC(InnerParagraph2)

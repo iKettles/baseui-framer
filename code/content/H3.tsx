@@ -4,7 +4,7 @@ import * as React from "react"
 import { withHOC } from "../withHOC"
 import { TextPropertyControl, ColorPropertyControl } from "../utils/PropertyControls"
 
-const InnerH3: React.SFC<any> = ({ text, ["children"]: _, ...props }) => {
+const InnerH3: React.SFC<any> = ({ text, ["children"]: _, willChangeTransform: __, ...props }) => {
   return <System.H3 {...props}>{text}</System.H3>
 }
 

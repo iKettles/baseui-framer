@@ -4,8 +4,8 @@ import { addPropertyControls } from "framer"
 import { withHOC } from "../withHOC"
 import { TextPropertyControl, ColorPropertyControl } from "../utils/PropertyControls"
 
-const InnerLabel1: React.SFC = props => {
-  return <System.Label1 {...props}>{props.text}</System.Label1>
+const InnerLabel1: React.SFC<any> = ({ text, ["children"]: _, willChangeTransform: __, ...props }) => {
+  return <System.Label1 {...props}>{text}</System.Label1>
 }
 
 export const Label1 = withHOC(InnerLabel1)

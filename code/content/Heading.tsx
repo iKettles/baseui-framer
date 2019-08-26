@@ -5,7 +5,7 @@ import { controls, merge } from "../generated/Heading"
 import { TextPropertyControl, ColorPropertyControl } from "../utils/PropertyControls"
 import { withHOC } from "../withHOC"
 
-const InnerHeading: React.SFC<any> = ({ text, ["children"]: _, ...props }) => {
+const InnerHeading: React.SFC<any> = ({ text, ["children"]: _, willChangeTransform: __, ...props }) => {
   return (
     <System.HeadingLevel>
       <System.Heading {...props}>{text}</System.Heading>
