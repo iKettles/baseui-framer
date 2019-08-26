@@ -1,20 +1,20 @@
 // WARNING: This is an auto-generated file. Changes to this file will be lost!
-import { ControlType, PropertyControls, ControlDescription } from "framer";
+import { ControlType, PropertyControls, ControlDescription } from "framer"
 
 export type Controls = {
-  accessibilityType: ControlDescription;
-  id: ControlDescription;
-  ignoreBoundary: ControlDescription;
-  onMouseEnterDelay: ControlDescription;
-  onMouseLeaveDelay: ControlDescription;
-  placement: ControlDescription;
-  showArrow: ControlDescription;
-  triggerType: ControlDescription;
-  animateOutTime: ControlDescription;
-  children: ControlDescription;
-  content: ControlDescription;
-  isOpen: ControlDescription;
-};
+  accessibilityType: ControlDescription
+  id: ControlDescription
+  ignoreBoundary: ControlDescription
+  onMouseEnterDelay: ControlDescription
+  onMouseLeaveDelay: ControlDescription
+  placement: ControlDescription
+  showArrow: ControlDescription
+  triggerType: ControlDescription
+  animateOutTime: ControlDescription
+  children: ControlDescription
+  content: ControlDescription
+  isOpen: ControlDescription
+}
 
 /**
  * Contains the inferred property controls.
@@ -25,13 +25,13 @@ export const controls: Controls = {
     options: ["none", "menu", "tooltip"],
     optionTitles: ["None", "Menu", "Tooltip"],
     defaultValue: "none",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   id: { title: "Id", defaultValue: "", type: ControlType.String },
   ignoreBoundary: {
     title: "IgnoreBoundary",
     defaultValue: false,
-    type: ControlType.Boolean
+    type: ControlType.Boolean,
   },
   onMouseEnterDelay: { title: "OnMouseEnterDelay", type: ControlType.Number },
   onMouseLeaveDelay: { title: "OnMouseLeaveDelay", type: ControlType.Number },
@@ -50,7 +50,7 @@ export const controls: Controls = {
       "bottomRight",
       "bottomLeft",
       "leftBottom",
-      "leftTop"
+      "leftTop",
     ],
     optionTitles: [
       "Auto",
@@ -65,32 +65,29 @@ export const controls: Controls = {
       "BottomRight",
       "BottomLeft",
       "LeftBottom",
-      "LeftTop"
+      "LeftTop",
     ],
     defaultValue: "auto",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   showArrow: {
     title: "ShowArrow",
     defaultValue: false,
-    type: ControlType.Boolean
+    type: ControlType.Boolean,
   },
   triggerType: {
     title: "TriggerType",
     options: ["click", "hover"],
     optionTitles: ["Click", "Hover"],
     defaultValue: "click",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   animateOutTime: { title: "AnimateOutTime", type: ControlType.Number },
   children: { title: "Children", defaultValue: "", type: ControlType.String },
   content: { title: "Content", defaultValue: "", type: ControlType.String },
-  isOpen: { title: "IsOpen", defaultValue: false, type: ControlType.Boolean }
-};
+  isOpen: { title: "IsOpen", defaultValue: false, type: ControlType.Boolean },
+}
 
-export function merge(
-  inferredControls: ControlDescription,
-  overrides: {}
-): ControlDescription {
-  return { ...inferredControls, ...overrides };
+export function merge(inferredControls: ControlDescription, overrides: {}): ControlDescription {
+  return { ...inferredControls, ...overrides }
 }

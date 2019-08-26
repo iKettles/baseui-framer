@@ -1,11 +1,11 @@
-let globalTheme = "light";
+let globalTheme = "light"
 
 type Listener = (theme: string) => void
-const listeners = new Set<Listener>();
+const listeners = new Set<Listener>()
 
 function notifyListeners() {
   for (const listener of listeners) {
-    listener(globalTheme);
+    listener(globalTheme)
   }
 }
 

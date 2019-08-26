@@ -3,8 +3,8 @@ import { addPropertyControls, ControlType, Frame } from "framer"
 import { setTheme } from "./ThemeManagement"
 
 interface ThemeProps {
-    theme: any
-    children: any
+  theme: any
+  children: any
 }
 
 export const ThemeSwitcher: React.SFC = (props: ThemeProps) => {
@@ -12,13 +12,17 @@ export const ThemeSwitcher: React.SFC = (props: ThemeProps) => {
     setTheme(props.theme)
   }, [props.theme])
 
-  return <Frame background={'transparent'} width={'100%'} height={'100%'}>Current Theme: {props.theme}</Frame>
+  return (
+    <Frame background={"transparent"} width={"100%"} height={"100%"}>
+      Current Theme: {props.theme}
+    </Frame>
+  )
 }
 
 ThemeSwitcher.defaultProps = {
   width: 110,
-  height: 25
-};
+  height: 25,
+}
 
 addPropertyControls(ThemeSwitcher, {
   theme: {
@@ -27,5 +31,5 @@ addPropertyControls(ThemeSwitcher, {
     optionTitles: ["Dark", "Light"],
     type: ControlType.Enum,
     defaultValue: "dark",
-  }
+  },
 })

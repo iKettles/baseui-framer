@@ -1,12 +1,12 @@
 // WARNING: This is an auto-generated file. Changes to this file will be lost!
-import { ControlType, PropertyControls, ControlDescription } from "framer";
+import { ControlType, PropertyControls, ControlDescription } from "framer"
 
 export type Controls = {
-  children: ControlDescription;
-  direction: ControlDescription;
-  disabled: ControlDescription;
-  title: ControlDescription;
-};
+  children: ControlDescription
+  direction: ControlDescription
+  disabled: ControlDescription
+  title: ControlDescription
+}
 
 /**
  * Contains the inferred property controls.
@@ -18,19 +18,16 @@ export const controls: Controls = {
     options: ["ASC", "DESC"],
     optionTitles: ["ASC", "DESC"],
     defaultValue: "ASC",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   disabled: {
     title: "Disabled",
     defaultValue: false,
-    type: ControlType.Boolean
+    type: ControlType.Boolean,
   },
-  title: { title: "Title", defaultValue: "", type: ControlType.String }
-};
+  title: { title: "Title", defaultValue: "", type: ControlType.String },
+}
 
-export function merge(
-  inferredControls: ControlDescription,
-  overrides: {}
-): ControlDescription {
-  return { ...inferredControls, ...overrides };
+export function merge(inferredControls: ControlDescription, overrides: {}): ControlDescription {
+  return { ...inferredControls, ...overrides }
 }

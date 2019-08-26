@@ -1,10 +1,10 @@
 // WARNING: This is an auto-generated file. Changes to this file will be lost!
-import { ControlType, PropertyControls, ControlDescription } from "framer";
+import { ControlType, PropertyControls, ControlDescription } from "framer"
 
 export type Controls = {
-  children: ControlDescription;
-  placement: ControlDescription;
-};
+  children: ControlDescription
+  placement: ControlDescription
+}
 
 /**
  * Contains the inferred property controls.
@@ -26,7 +26,7 @@ export const controls: Controls = {
       "bottomRight",
       "bottomLeft",
       "leftBottom",
-      "leftTop"
+      "leftTop",
     ],
     optionTitles: [
       "Auto",
@@ -41,16 +41,13 @@ export const controls: Controls = {
       "BottomRight",
       "BottomLeft",
       "LeftBottom",
-      "LeftTop"
+      "LeftTop",
     ],
     defaultValue: "auto",
-    type: ControlType.Enum
-  }
-};
+    type: ControlType.Enum,
+  },
+}
 
-export function merge(
-  inferredControls: ControlDescription,
-  overrides: {}
-): ControlDescription {
-  return { ...inferredControls, ...overrides };
+export function merge(inferredControls: ControlDescription, overrides: {}): ControlDescription {
+  return { ...inferredControls, ...overrides }
 }

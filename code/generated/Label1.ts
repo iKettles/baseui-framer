@@ -1,45 +1,45 @@
 // WARNING: This is an auto-generated file. Changes to this file will be lost!
-import { ControlType, PropertyControls, ControlDescription } from "framer";
+import { ControlType, PropertyControls, ControlDescription } from "framer"
 
 export type Controls = {
-  children: ControlDescription;
-  src: ControlDescription;
-  alignContent: ControlDescription;
-  alignItems: ControlDescription;
-  alignSelf: ControlDescription;
-  flexDirection: ControlDescription;
-  display: ControlDescription;
-  flex: ControlDescription;
-  gridAutoFlow: ControlDescription;
-  gridColumnGap: ControlDescription;
-  gridGap: ControlDescription;
-  gridRowGap: ControlDescription;
-  justifyContent: ControlDescription;
-  justifyItems: ControlDescription;
-  justifySelf: ControlDescription;
-  position: ControlDescription;
-  width: ControlDescription;
-  minWidth: ControlDescription;
-  maxWidth: ControlDescription;
-  height: ControlDescription;
-  minHeight: ControlDescription;
-  maxHeight: ControlDescription;
-  overflow: ControlDescription;
-  margin: ControlDescription;
-  marginTop: ControlDescription;
-  marginRight: ControlDescription;
-  marginBottom: ControlDescription;
-  marginLeft: ControlDescription;
-  padding: ControlDescription;
-  paddingTop: ControlDescription;
-  paddingRight: ControlDescription;
-  paddingBottom: ControlDescription;
-  paddingLeft: ControlDescription;
-  left: ControlDescription;
-  top: ControlDescription;
-  right: ControlDescription;
-  bottom: ControlDescription;
-};
+  children: ControlDescription
+  src: ControlDescription
+  alignContent: ControlDescription
+  alignItems: ControlDescription
+  alignSelf: ControlDescription
+  flexDirection: ControlDescription
+  display: ControlDescription
+  flex: ControlDescription
+  gridAutoFlow: ControlDescription
+  gridColumnGap: ControlDescription
+  gridGap: ControlDescription
+  gridRowGap: ControlDescription
+  justifyContent: ControlDescription
+  justifyItems: ControlDescription
+  justifySelf: ControlDescription
+  position: ControlDescription
+  width: ControlDescription
+  minWidth: ControlDescription
+  maxWidth: ControlDescription
+  height: ControlDescription
+  minHeight: ControlDescription
+  maxHeight: ControlDescription
+  overflow: ControlDescription
+  margin: ControlDescription
+  marginTop: ControlDescription
+  marginRight: ControlDescription
+  marginBottom: ControlDescription
+  marginLeft: ControlDescription
+  padding: ControlDescription
+  paddingTop: ControlDescription
+  paddingRight: ControlDescription
+  paddingBottom: ControlDescription
+  paddingLeft: ControlDescription
+  left: ControlDescription
+  top: ControlDescription
+  right: ControlDescription
+  bottom: ControlDescription
+}
 
 /**
  * Contains the inferred property controls.
@@ -67,7 +67,7 @@ export const controls: Controls = {
       "unsafe center",
       "inherit",
       "initial",
-      "unset"
+      "unset",
     ],
     optionTitles: [
       "Center",
@@ -87,10 +87,10 @@ export const controls: Controls = {
       "Unsafe center",
       "Inherit",
       "Initial",
-      "Unset"
+      "Unset",
     ],
     defaultValue: "center",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   alignItems: {
     title: "AlignItems",
@@ -111,7 +111,7 @@ export const controls: Controls = {
       "initial",
       "unset",
       "self-start",
-      "self-end"
+      "self-end",
     ],
     optionTitles: [
       "Center",
@@ -130,10 +130,10 @@ export const controls: Controls = {
       "Initial",
       "Unset",
       "Self-start",
-      "Self-end"
+      "Self-end",
     ],
     defaultValue: "center",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   alignSelf: {
     title: "AlignSelf",
@@ -155,7 +155,7 @@ export const controls: Controls = {
       "unset",
       "self-start",
       "self-end",
-      "auto"
+      "auto",
     ],
     optionTitles: [
       "Center",
@@ -175,33 +175,17 @@ export const controls: Controls = {
       "Unset",
       "Self-start",
       "Self-end",
-      "Auto"
+      "Auto",
     ],
     defaultValue: "center",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   flexDirection: {
     title: "FlexDirection",
-    options: [
-      "inherit",
-      "initial",
-      "unset",
-      "row",
-      "row-reverse",
-      "column",
-      "column-reverse"
-    ],
-    optionTitles: [
-      "Inherit",
-      "Initial",
-      "Unset",
-      "Row",
-      "Row-reverse",
-      "Column",
-      "Column-reverse"
-    ],
+    options: ["inherit", "initial", "unset", "row", "row-reverse", "column", "column-reverse"],
+    optionTitles: ["Inherit", "Initial", "Unset", "Row", "Row-reverse", "Column", "Column-reverse"],
     defaultValue: "inherit",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   display: {
     title: "Display",
@@ -246,7 +230,7 @@ export const controls: Controls = {
       "inline-block",
       "inline-table",
       "inline-flex",
-      "inline-grid"
+      "inline-grid",
     ],
     optionTitles: [
       "Inherit",
@@ -289,47 +273,29 @@ export const controls: Controls = {
       "Inline-block",
       "Inline-table",
       "Inline-flex",
-      "Inline-grid"
+      "Inline-grid",
     ],
     defaultValue: "inherit",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   flex: { title: "Flex", defaultValue: "", type: ControlType.String },
   gridAutoFlow: {
     title: "GridAutoFlow",
-    options: [
-      "inherit",
-      "initial",
-      "unset",
-      "row",
-      "column",
-      "dense",
-      "row dense",
-      "column dense"
-    ],
-    optionTitles: [
-      "Inherit",
-      "Initial",
-      "Unset",
-      "Row",
-      "Column",
-      "Dense",
-      "Row dense",
-      "Column dense"
-    ],
+    options: ["inherit", "initial", "unset", "row", "column", "dense", "row dense", "column dense"],
+    optionTitles: ["Inherit", "Initial", "Unset", "Row", "Column", "Dense", "Row dense", "Column dense"],
     defaultValue: "inherit",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   gridColumnGap: {
     title: "GridColumnGap",
     defaultValue: "",
-    type: ControlType.String
+    type: ControlType.String,
   },
   gridGap: { title: "GridGap", defaultValue: "", type: ControlType.String },
   gridRowGap: {
     title: "GridRowGap",
     defaultValue: "",
-    type: ControlType.String
+    type: ControlType.String,
   },
   justifyContent: {
     title: "JustifyContent",
@@ -349,7 +315,7 @@ export const controls: Controls = {
       "initial",
       "unset",
       "left",
-      "right"
+      "right",
     ],
     optionTitles: [
       "Center",
@@ -367,10 +333,10 @@ export const controls: Controls = {
       "Initial",
       "Unset",
       "Left",
-      "Right"
+      "Right",
     ],
     defaultValue: "center",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   justifyItems: {
     title: "JustifyItems",
@@ -397,7 +363,7 @@ export const controls: Controls = {
       "right",
       "legacy right",
       "legacy left",
-      "legacy center"
+      "legacy center",
     ],
     optionTitles: [
       "Center",
@@ -422,10 +388,10 @@ export const controls: Controls = {
       "Right",
       "Legacy right",
       "Legacy left",
-      "Legacy center"
+      "Legacy center",
     ],
     defaultValue: "center",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   justifySelf: {
     title: "JustifySelf",
@@ -449,7 +415,7 @@ export const controls: Controls = {
       "self-end",
       "auto",
       "left",
-      "right"
+      "right",
     ],
     optionTitles: [
       "Center",
@@ -471,17 +437,17 @@ export const controls: Controls = {
       "Self-end",
       "Auto",
       "Left",
-      "Right"
+      "Right",
     ],
     defaultValue: "center",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   position: {
     title: "Position",
     options: ["static", "absolute", "relative", "fixed", "sticky"],
     optionTitles: ["Static", "Absolute", "Relative", "Fixed", "Sticky"],
     defaultValue: "static",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   width: { title: "Width", defaultValue: "", type: ControlType.String },
   minWidth: { title: "MinWidth", defaultValue: "", type: ControlType.String },
@@ -491,78 +457,55 @@ export const controls: Controls = {
   maxHeight: { title: "MaxHeight", defaultValue: "", type: ControlType.String },
   overflow: {
     title: "Overflow",
-    options: [
-      "inherit",
-      "initial",
-      "unset",
-      "auto",
-      "visible",
-      "hidden",
-      "scroll",
-      "scrollX",
-      "scrollY"
-    ],
-    optionTitles: [
-      "Inherit",
-      "Initial",
-      "Unset",
-      "Auto",
-      "Visible",
-      "Hidden",
-      "Scroll",
-      "ScrollX",
-      "ScrollY"
-    ],
+    options: ["inherit", "initial", "unset", "auto", "visible", "hidden", "scroll", "scrollX", "scrollY"],
+    optionTitles: ["Inherit", "Initial", "Unset", "Auto", "Visible", "Hidden", "Scroll", "ScrollX", "ScrollY"],
     defaultValue: "inherit",
-    type: ControlType.Enum
+    type: ControlType.Enum,
   },
   margin: { title: "Margin", defaultValue: "", type: ControlType.String },
   marginTop: { title: "MarginTop", defaultValue: "", type: ControlType.String },
   marginRight: {
     title: "MarginRight",
     defaultValue: "",
-    type: ControlType.String
+    type: ControlType.String,
   },
   marginBottom: {
     title: "MarginBottom",
     defaultValue: "",
-    type: ControlType.String
+    type: ControlType.String,
   },
   marginLeft: {
     title: "MarginLeft",
     defaultValue: "",
-    type: ControlType.String
+    type: ControlType.String,
   },
   padding: { title: "Padding", defaultValue: "", type: ControlType.String },
   paddingTop: {
     title: "PaddingTop",
     defaultValue: "",
-    type: ControlType.String
+    type: ControlType.String,
   },
   paddingRight: {
     title: "PaddingRight",
     defaultValue: "",
-    type: ControlType.String
+    type: ControlType.String,
   },
   paddingBottom: {
     title: "PaddingBottom",
     defaultValue: "",
-    type: ControlType.String
+    type: ControlType.String,
   },
   paddingLeft: {
     title: "PaddingLeft",
     defaultValue: "",
-    type: ControlType.String
+    type: ControlType.String,
   },
   left: { title: "Left", defaultValue: "", type: ControlType.String },
   top: { title: "Top", defaultValue: "", type: ControlType.String },
   right: { title: "Right", defaultValue: "", type: ControlType.String },
-  bottom: { title: "Bottom", defaultValue: "", type: ControlType.String }
-};
+  bottom: { title: "Bottom", defaultValue: "", type: ControlType.String },
+}
 
-export function merge(
-  inferredControls: ControlDescription,
-  overrides: {}
-): ControlDescription {
-  return { ...inferredControls, ...overrides };
+export function merge(inferredControls: ControlDescription, overrides: {}): ControlDescription {
+  return { ...inferredControls, ...overrides }
 }

@@ -1,19 +1,19 @@
-import * as React from "react";
-import * as System from "baseui/file-uploader";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "../generated/FileUploader";
-import { withHOC } from "../withHOC";
+import * as React from "react"
+import * as System from "baseui/file-uploader"
+import { ControlType, PropertyControls, addPropertyControls } from "framer"
+import { controls, merge } from "../generated/FileUploader"
+import { withHOC } from "../withHOC"
 
 const InnerFileUploader: React.SFC = props => {
-  return <System.FileUploader {...props} />;
-};
+  return <System.FileUploader {...props} />
+}
 
-export const FileUploader = withHOC(InnerFileUploader);
+export const FileUploader = withHOC(InnerFileUploader)
 
 FileUploader.defaultProps = {
   width: 480,
-  height: 165
-};
+  height: 165,
+}
 
 addPropertyControls(FileUploader, {
   disableClick: merge(controls.disableClick, {}),
@@ -24,5 +24,5 @@ addPropertyControls(FileUploader, {
   preventDropOnDocument: merge(controls.preventDropOnDocument, {}),
   errorMessage: merge(controls.errorMessage, {}),
   progressAmount: merge(controls.progressAmount, {}),
-  progressMessage: merge(controls.progressMessage, {})
-});
+  progressMessage: merge(controls.progressMessage, {}),
+})

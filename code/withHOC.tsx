@@ -1,6 +1,6 @@
-import * as React from "react";
-import { ThemeProvider } from "./utils/ThemeProvider";
-import { addListener } from "./utils/ThemeManagement";
+import * as React from "react"
+import { ThemeProvider } from "./utils/ThemeProvider"
+import { addListener } from "./utils/ThemeManagement"
 
 export function withHOC(Component): React.SFC {
   return (props: any) => {
@@ -8,15 +8,15 @@ export function withHOC(Component): React.SFC {
 
     React.useEffect(() => {
       const unsubscribe = addListener(theme => {
-          setCurrentTheme(theme)
+        setCurrentTheme(theme)
       })
-      return unsubscribe;
-    }, []);
+      return unsubscribe
+    }, [])
 
     return (
-      <ThemeProvider theme={props.theme === 'inherit' ? currentTheme : props.theme}>
+      <ThemeProvider theme={props.theme === "inherit" ? currentTheme : props.theme}>
         <Component {...props} />
       </ThemeProvider>
     )
-  };
+  }
 }

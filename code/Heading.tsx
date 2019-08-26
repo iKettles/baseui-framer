@@ -1,24 +1,24 @@
-import * as React from "react";
-import * as System from "baseui";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/Heading";
-import { withHOC } from "./withHOC";
+import * as React from "react"
+import * as System from "baseui"
+import { ControlType, PropertyControls, addPropertyControls } from "framer"
+import { controls, merge } from "./generated/Heading"
+import { withHOC } from "./withHOC"
 
 const style: React.CSSProperties = {
   width: "100%",
-  height: "100%"
-};
+  height: "100%",
+}
 
 const InnerHeading: React.SFC = props => {
-  return <System.Heading {...props} style={style} />;
-};
+  return <System.Heading {...props} style={style} />
+}
 
-export const Heading = withHOC(InnerHeading);
+export const Heading = withHOC(InnerHeading)
 
 Heading.defaultProps = {
   width: 150,
-  height: 50
-};
+  height: 50,
+}
 
 addPropertyControls(Heading, {
   styleLevel: merge(controls.styleLevel, {}),
@@ -58,5 +58,5 @@ addPropertyControls(Heading, {
   left: merge(controls.left, {}),
   top: merge(controls.top, {}),
   right: merge(controls.right, {}),
-  bottom: merge(controls.bottom, {})
-});
+  bottom: merge(controls.bottom, {}),
+})

@@ -1,14 +1,12 @@
-import * as React from "react";
-import * as System from "baseui/select";
-import { addPropertyControls, ControlType } from "framer";
-import { controls, merge } from "../generated/Select";
-import { withHOC } from "../withHOC";
-import { useManagedState } from "../utils/useManagedState";
+import * as React from "react"
+import * as System from "baseui/select"
+import { addPropertyControls, ControlType } from "framer"
+import { controls, merge } from "../generated/Select"
+import { withHOC } from "../withHOC"
+import { useManagedState } from "../utils/useManagedState"
 
 const InnerSelect: React.SFC<any> = ({ options, ...props }) => {
-  const [currentValue, setValue] = useManagedState<Readonly<System.Option[]>>(
-    []
-  );
+  const [currentValue, setValue] = useManagedState<Readonly<System.Option[]>>([])
 
   return (
     <System.Select
@@ -20,21 +18,21 @@ const InnerSelect: React.SFC<any> = ({ options, ...props }) => {
       searchable={props.type === "search"}
       {...props}
     />
-  );
-};
+  )
+}
 
-export const Select = withHOC(InnerSelect);
+export const Select = withHOC(InnerSelect)
 
 Select.defaultProps = {
   width: 250,
-  height: 50
-};
+  height: 50,
+}
 
 addPropertyControls(Select, {
   options: {
     type: ControlType.Array,
     propertyControl: { type: ControlType.String },
-    defaultValue: ["first option", "second option", "third option"]
+    defaultValue: ["first option", "second option", "third option"],
   },
   backspaceRemoves: merge(controls.backspaceRemoves, { defaultValue: true }),
   closeOnSelect: merge(controls.closeOnSelect, { defaultValue: true }),
@@ -51,11 +49,11 @@ addPropertyControls(Select, {
     unit: "px",
     min: 0,
     max: 500,
-    defaultValue: 200
+    defaultValue: 200,
   },
   noResultsMsg: merge(controls.noResultsMsg, {}),
   openOnClick: merge(controls.openOnClick, {}),
   placeholder: merge(controls.placeholder, {}),
   size: merge(controls.size, {}),
-  type: merge(controls.type, {})
-});
+  type: merge(controls.type, {}),
+})

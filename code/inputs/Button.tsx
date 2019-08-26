@@ -1,20 +1,16 @@
-import * as React from "react";
-import * as System from "baseui/button";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "../generated/Button";
-import { withHOC } from "../withHOC";
-import { ThemePropertyControl } from "../utils/PropertyControls";
-import { filterProps } from "../utils/FilterProps";
+import * as React from "react"
+import * as System from "baseui/button"
+import { ControlType, PropertyControls, addPropertyControls } from "framer"
+import { controls, merge } from "../generated/Button"
+import { withHOC } from "../withHOC"
+import { ThemePropertyControl } from "../utils/PropertyControls"
+import { filterProps } from "../utils/FilterProps"
 
 const InnerButton: React.SFC<any> = props => {
-  return (
-    <System.Button {...filterProps(props, ["willChangeTransform"])}>
-      {props.text}
-    </System.Button>
-  );
-};
+  return <System.Button {...filterProps(props, ["willChangeTransform"])}>{props.text}</System.Button>
+}
 
-export const Button = withHOC(InnerButton);
+export const Button = withHOC(InnerButton)
 
 Button.defaultProps = {
   width: 200,
@@ -25,8 +21,8 @@ Button.defaultProps = {
   kind: System.KIND.primary,
   overrides: {},
   shape: System.SHAPE.default,
-  size: System.SIZE.default
-};
+  size: System.SIZE.default,
+}
 
 export const ButtonPropertyControls: PropertyControls = {
   href: merge(controls.href, {}),
@@ -44,9 +40,9 @@ export const ButtonPropertyControls: PropertyControls = {
   text: {
     title: "Text",
     type: ControlType.String,
-    defaultValue: "Button"
+    defaultValue: "Button",
   },
-  ...ThemePropertyControl
-};
+  ...ThemePropertyControl,
+}
 
-addPropertyControls(Button, ButtonPropertyControls);
+addPropertyControls(Button, ButtonPropertyControls)
