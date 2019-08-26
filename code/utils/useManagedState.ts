@@ -5,7 +5,9 @@ function cheapHash(value: any) {
   return JSON.stringify(value);
 }
 
-export function useManagedState<T>(value: T) {
+export function useManagedState<T>(
+  value: T
+): [T, React.Dispatch<React.SetStateAction<T>>] {
   const [currentValue, setValue] = useState<T>(value);
 
   useEffect(() => {
