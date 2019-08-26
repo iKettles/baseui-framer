@@ -1,23 +1,18 @@
 import * as React from "react";
 import * as System from "baseui/file-uploader";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/FileUploader";
-import { withHOC } from "./withHOC";
-
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
+import { controls, merge } from "../generated/FileUploader";
+import { withHOC } from "../withHOC";
 
 const InnerFileUploader: React.SFC = props => {
-  return <System.FileUploader {...props} style={style} />;
+  return <System.FileUploader {...props} />;
 };
 
 export const FileUploader = withHOC(InnerFileUploader);
 
 FileUploader.defaultProps = {
-  width: 150,
-  height: 50
+  width: 480,
+  height: 165
 };
 
 addPropertyControls(FileUploader, {
@@ -26,7 +21,6 @@ addPropertyControls(FileUploader, {
   maxSize: merge(controls.maxSize, {}),
   minSize: merge(controls.minSize, {}),
   multiple: merge(controls.multiple, {}),
-  name: merge(controls.name, {}),
   preventDropOnDocument: merge(controls.preventDropOnDocument, {}),
   errorMessage: merge(controls.errorMessage, {}),
   progressAmount: merge(controls.progressAmount, {}),
