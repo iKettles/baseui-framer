@@ -1,8 +1,8 @@
 import * as React from "react"
 import * as System from "baseui/toast"
 import { ControlType, PropertyControls, addPropertyControls } from "framer"
-import { controls, merge } from "./generated/Toast"
-import { withHOC } from "./withHOC"
+import { controls, merge } from "../generated/Toast"
+import { withHOC } from "../withHOC"
 
 const style: React.CSSProperties = {
   width: "100%",
