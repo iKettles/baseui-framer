@@ -3,11 +3,11 @@ import { addPropertyControls } from "framer"
 import * as React from "react"
 import { controls, merge } from "../generated/Input"
 import { withHOC } from "../withHOC"
+import { SetGlobalVariablePropertyConteols } from "../utils/PropertyControls"
 import { useManagedState } from "../utils/useManagedState"
-import { ArrowLeft } from "../icons/ArrowLeft"
 
-const InnerInput: React.SFC<any> = ({ value, ...props }) => {
-  const [currentValue, setValue] = useManagedState(value)
+const InnerInput: React.SFC<any> = ({ value, onChangeGlobalVariable, ...props }) => {
+  const [currentValue, setValue] = useManagedState(value, onChangeGlobalVariable)
   return <System.Input value={currentValue} onChange={e => setValue(e.target["value"])} {...props} />
 }
 
@@ -25,4 +25,5 @@ addPropertyControls(Input, {
   positive: merge(controls.positive, {}),
   placeholder: merge(controls.placeholder, { defaultValue: "placeholder" }),
   value: merge(controls.value, {}),
+  ...SetGlobalVariablePropertyConteols,
 })

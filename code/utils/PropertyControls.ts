@@ -41,3 +41,28 @@ export const ItemPropertyControlDescription: ControlDescription = {
     type: ControlType.String,
   },
 }
+
+export const UseGlobalVariablePropertyControls: PropertyControls = {
+  useGlobalVariable: {
+    title: "Value Binding",
+    type: ControlType.Enum,
+    options: ["no-binding", "bind-to-variable"],
+    optionTitles: ["No Binding", "Bind To Variable"],
+    defaultValue: "no-binding",
+  },
+  useGlobalVariableName: {
+    title: "Variable",
+    type: ControlType.String,
+    hidden: props => props.useGlobalVariable !== "bind-to-variable",
+  },
+}
+
+export const SetGlobalVariablePropertyConteols: PropertyControls = {
+  ...UseGlobalVariablePropertyControls,
+  controlsGlobalVariable: {
+    title: "Controls Variable",
+    type: ControlType.Boolean,
+    defaultValue: true,
+    hidden: props => true,
+  },
+}

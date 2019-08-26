@@ -1,16 +1,26 @@
-import { useState, useEffect } from "react"
+import { useState, useCallback, useEffect } from "react"
 
-function cheapHash(value: any) {
-  // TODO: replace with something like https://github.com/puleos/object-hash
-  return JSON.stringify(value)
-}
+export function useManagedState<T>(
+  value: T,
+  onChangeGlobalVariable?: (value: any) => void
+): [T, React.Dispatch<React.SetStateAction<T>>] {
+  const [currentValue, setValue] = useState(value)
 
-export function useManagedState<T>(value: T): [T, React.Dispatch<React.SetStateAction<T>>] {
-  const [currentValue, setValue] = useState<T>(value)
+  // Set local state and global state (if necessary)
+  const setManagedValue = useCallback(
+    value => {
+      setValue(value)
+      if (onChangeGlobalVariable) {
+        onChangeGlobalVariable(value)
+      }
+    },
+    [onChangeGlobalVariable]
+  )
 
+  // Update managed value if default value of component changes
   useEffect(() => {
-    setValue(value)
-  }, [cheapHash(value)])
+    setManagedValue(value)
+  }, [value])
 
-  return [currentValue, setValue]
+  return [currentValue, setManagedValue]
 }
