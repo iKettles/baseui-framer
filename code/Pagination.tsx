@@ -3,7 +3,6 @@ import * as System from "baseui/pagination";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
 import { controls, merge } from "./generated/Pagination";
 import { withHOC } from "./withHOC";
-import { filterProps } from "./utils/FilterProps";
 
 const InnerPagination: React.SFC = props => {
   const [currentPage, setCurrentPage] = React.useState(props.currentPage);
@@ -11,7 +10,7 @@ const InnerPagination: React.SFC = props => {
     setCurrentPage(Math.min(Math.max(nextPage, 1), 20))
   ), []);
 
-  return <System.Pagination {...filterProps(props, ['currentPage'])} currentPage={currentPage} onPageChange={onPageChanged} />;
+  return <System.Pagination {...props} currentPage={currentPage} onPageChange={onPageChanged} />;
 };
 
 export const Pagination = withHOC(InnerPagination);
