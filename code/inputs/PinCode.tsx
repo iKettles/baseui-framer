@@ -1,12 +1,12 @@
 import * as System from "baseui/pin-code";
-import { addPropertyControls, ControlType } from "framer";
+import { addPropertyControls } from "framer";
 import * as React from "react";
-import { controls, merge } from "./generated/PinCode";
-import { useManagedState } from "./utils/useManagedState";
-import { withHOC } from "./withHOC";
+import { controls, merge } from "../generated/PinCode";
+import { useManagedState } from "../utils/useManagedState";
+import { withHOC } from "../withHOC";
 
 const InnerPinCode: React.SFC<any> = ({ values, ...props }) => {
-  const [currentValues, setValues] = useManagedState(values);
+  const [currentValues, setValues] = useManagedState<string[]>(values);
 
   return (
     <System.PinCode
