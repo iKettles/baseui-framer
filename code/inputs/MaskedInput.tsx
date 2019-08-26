@@ -1,13 +1,8 @@
 import * as System from "baseui/input";
 import { addPropertyControls } from "framer";
 import * as React from "react";
-import { controls, merge } from "./generated/MaskedInput";
-import { withHOC } from "./withHOC";
-
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%"
-};
+import { controls, merge } from "../generated/MaskedInput";
+import { withHOC } from "../withHOC";
 
 const InnerMaskedInput: React.SFC = props => {
   return <System.MaskedInput {...props} />;
