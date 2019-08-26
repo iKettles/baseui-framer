@@ -1,19 +1,21 @@
-import * as React from "react";
 import * as System from "baseui/breadcrumbs";
 import { StyledLink as Link } from "baseui/link";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "../generated/Breadcrumbs";
+import { addPropertyControls, ControlType } from "framer";
+import * as React from "react";
 import { withHOC } from "../withHOC";
 
 const InnerBreadcrumbs: React.SFC = props => {
-  const { activeItem, items } = props.items.reduce((acc, item, index) => {
-    if(index === props.activeItemIndex) {
-      acc.activeItem = item;
-    } else {
-      acc.items.push(item);
-    }
-    return acc;
-  }, { activeItem: null, items: []});
+  const { activeItem, items } = props.items.reduce(
+    (acc, item, index) => {
+      if (index === props.activeItemIndex) {
+        acc.activeItem = item;
+      } else {
+        acc.items.push(item);
+      }
+      return acc;
+    },
+    { activeItem: null, items: [] }
+  );
 
   return (
     <System.Breadcrumbs {...props}>
@@ -35,8 +37,6 @@ Breadcrumbs.defaultProps = {
 const defaultItems = ["Parent Page", "Sub-Parent Page", "Current Page"];
 
 addPropertyControls(Breadcrumbs, {
-  children: merge(controls.children, {}),
-  ariaLabel: merge(controls.ariaLabel, {}),
   items: {
     type: ControlType.Array,
     title: "Items",
