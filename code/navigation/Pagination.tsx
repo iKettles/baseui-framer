@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as System from "baseui/pagination";
 import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/Pagination";
-import { withHOC } from "./withHOC";
+import { controls, merge } from "../generated/Pagination";
+import { withHOC } from "../withHOC";
 
 const InnerPagination: React.SFC = props => {
   const [currentPage, setCurrentPage] = React.useState(props.currentPage);

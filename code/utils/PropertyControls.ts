@@ -1,4 +1,4 @@
-import { ControlType, PropertyControls } from "framer";
+import { ControlType, PropertyControls, ControlDescription } from "framer";
 
 export const ThemePropertyControl: PropertyControls = {
   theme: {
@@ -31,5 +31,13 @@ export const ColorPropertyControl: PropertyControls = {
     title: "Color",
     type: ControlType.Color,
     defaultValue: "#000000"
+  }
+}
+
+export const ItemPropertyControlDescription: ControlDescription = {
+  title: "Items",
+  type: ControlType.Array,
+  propertyControl: {
+    type: ControlType.String
   }
 }
