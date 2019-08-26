@@ -1,8 +1,8 @@
-import * as React from "react";
 import * as System from "baseui/progress-bar";
-import { ControlType, PropertyControls, addPropertyControls } from "framer";
-import { controls, merge } from "./generated/ProgressBar";
-import { withHOC } from "./withHOC";
+import { addPropertyControls } from "framer";
+import * as React from "react";
+import { controls, merge } from "../generated/ProgressBar";
+import { withHOC } from "../withHOC";
 
 const InnerProgressBar: React.SFC = props => {
   return <System.ProgressBar {...props} />;
