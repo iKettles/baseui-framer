@@ -4,25 +4,15 @@ import { addPropertyControls, ControlType } from "framer"
 import * as React from "react"
 import { withHOC } from "../withHOC"
 
-const InnerBreadcrumbs: React.SFC = props => {
-  const { activeItem, items } = props.items.reduce(
-    (acc, item, index) => {
-      if (index === props.activeItemIndex) {
-        acc.activeItem = item
-      } else {
-        acc.items.push(item)
-      }
-      return acc
-    },
-    { activeItem: null, items: [] }
-  )
-
+const InnerBreadcrumbs: React.SFC<any> = ({ items, activeItemIndex, ...props }) => {
   return (
     <System.Breadcrumbs {...props}>
-      {items.map((item, index) => (
-        <Link key={index}>{item}</Link>
-      ))}
-      {activeItem && <span>{activeItem}</span>}
+      {items.map((item, idx) => {
+        if (idx === activeItemIndex) {
+          return <span key={idx}>{item}</span>
+        }
+        return <Link key={idx}>{item}</Link>
+      })}
     </System.Breadcrumbs>
   )
 }
@@ -48,6 +38,7 @@ addPropertyControls(Breadcrumbs, {
   activeItemIndex: {
     type: ControlType.Number,
     title: "Active Item",
+    displayStepper: true,
     defaultValue: defaultItems.length - 1,
   },
 })
