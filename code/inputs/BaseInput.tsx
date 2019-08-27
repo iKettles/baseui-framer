@@ -1,10 +1,10 @@
 import * as System from "baseui/input"
 import { addPropertyControls, ControlType } from "framer"
 import * as React from "react"
-import { controls, merge } from "./generated/BaseInput"
-import { ThemePropertyControl } from "./utils/PropertyControls"
-import { useManagedState } from "./utils/useManagedState"
-import { withHOC } from "./withHOC"
+import { controls, merge } from "../generated/BaseInput"
+import { ThemePropertyControl } from "../utils/PropertyControls"
+import { useManagedState } from "../utils/useManagedState"
+import { withHOC } from "../withHOC"
 
 const InnerBaseInput: React.SFC<any> = ({ value, ["children"]: _, ...props }) => {
   const [currentValue, setValue] = useManagedState(value)
