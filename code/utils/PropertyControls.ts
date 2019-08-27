@@ -1,6 +1,10 @@
 import { ControlType, PropertyControls, ControlDescription } from "framer"
 import * as React from "react"
 
+export const IconPropertyControls: PropertyControls = {
+  color: { type: ControlType.Color, defaultValue: "#121212" },
+}
+
 export const ThemePropertyControl: PropertyControls = {
   theme: {
     title: "Theme",

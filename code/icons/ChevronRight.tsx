@@ -2,6 +2,7 @@ import BaseUiChevron from "baseui/icon/chevron-right"
 import { addPropertyControls, ControlType } from "framer"
 import * as React from "react"
 import { withHOC } from "../withHOC"
+import { IconPropertyControls } from "../utils/PropertyControls"
 
 const style: React.CSSProperties = {
   width: "100%",
@@ -20,5 +21,5 @@ ChevronRight.defaultProps = {
 }
 
 addPropertyControls(ChevronRight, {
-  color: { type: ControlType.Color, defaultValue: "#121212" },
+  ...IconPropertyControls,
 })

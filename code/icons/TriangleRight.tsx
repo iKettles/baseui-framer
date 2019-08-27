@@ -1,6 +1,7 @@
 import BaseUiTriangleRight from "baseui/icon/triangle-right"
-import { addPropertyControls, ControlType } from "framer"
+import { addPropertyControls } from "framer"
 import * as React from "react"
+import { IconPropertyControls } from "../utils/PropertyControls"
 import { withHOC } from "../withHOC"
 
 const style: React.CSSProperties = {
@@ -20,5 +21,5 @@ TriangleRight.defaultProps = {
 }
 
 addPropertyControls(TriangleRight, {
-  color: { type: ControlType.Color, defaultValue: "#121212" },
+  ...IconPropertyControls,
 })

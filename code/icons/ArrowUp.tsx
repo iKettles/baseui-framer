@@ -2,6 +2,7 @@ import BaseUiArrowUp from "baseui/icon/arrow-up"
 import { addPropertyControls, ControlType } from "framer"
 import * as React from "react"
 import { withHOC } from "../withHOC"
+import { IconPropertyControls } from "../utils/PropertyControls"
 
 const style: React.CSSProperties = {
   width: "100%",
@@ -20,5 +21,5 @@ ArrowUp.defaultProps = {
 }
 
 addPropertyControls(ArrowUp, {
-  color: { type: ControlType.Color, defaultValue: "#121212" },
+  ...IconPropertyControls,
 })
