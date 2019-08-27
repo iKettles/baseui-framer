@@ -25,5 +25,4 @@ addPropertyControls(PaymentCard, {
   }),
   size: merge(controls.size, {}),
   value: merge(controls.value, { defaultValue: "xxxxxxxxxxxxxxxx" }),
-  rows: merge(controls.rows, {}),
 })
