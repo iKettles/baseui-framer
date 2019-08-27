@@ -1,11 +1,12 @@
-import * as React from "react"
+import { Button } from "baseui/button"
 import * as System from "baseui/card"
-import { ControlType, addPropertyControls } from "framer"
+import { addPropertyControls, ControlType } from "framer"
+import * as React from "react"
 import { controls, merge } from "../generated/Card"
-import { withHOC } from "../withHOC"
-import { ThemePropertyControl } from "../utils/PropertyControls"
+import { ButtonPropertyControls } from "../inputs/Button"
 import { filterProps } from "../utils/FilterProps"
-import { Button, ButtonPropertyControls } from "../inputs/Button"
+import { ThemePropertyControl } from "../utils/PropertyControls"
+import { withHOC } from "../withHOC"
 
 const excludedProps = ["__serverResources", "__slotKeys", "willChangeTransform", "buttonText", "bodyText", "buttonKind"]
 
@@ -20,7 +21,9 @@ const InnerCard: React.SFC<any> = props => {
       {props.bodyText && <System.StyledBody>{props.bodyText}</System.StyledBody>}
       {props.buttonText && (
         <System.StyledAction>
-          <Button theme={props.theme} text={props.buttonText} kind={props.buttonKind} />
+          <Button kind={props.buttonKind} overrides={{ BaseButton: { style: { width: "100%" } } }}>
+            {props.buttonText}
+          </Button>
         </System.StyledAction>
       )}
     </System.Card>
@@ -35,21 +38,23 @@ Card.defaultProps = {
 }
 
 addPropertyControls(Card, {
-  action: merge(controls.action, {}),
   headerImage: merge(controls.headerImage, {
     type: ControlType.Image,
   }),
   thumbnail: merge(controls.thumbnail, {
     type: ControlType.Image,
   }),
-  title: merge(controls.title, {}),
+  title: merge(controls.title, { defaultValue: "Card" }),
   bodyText: {
     title: "Body Text",
     type: ControlType.String,
+    defaultValue:
+      "Cards are a self-contained unit of information, usually as part of a feed or series of similar content. Cards have a dynamic range of modifiers that allow text-only, text and illustration, and photography.",
   },
   buttonText: {
     title: "Button Text",
     type: ControlType.String,
+    defaultValue: "Sounds great!",
   },
   buttonKind: {
     ...ButtonPropertyControls.kind,
