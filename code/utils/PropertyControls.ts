@@ -43,6 +43,31 @@ export const ItemPropertyControlDescription: ControlDescription = {
   },
 }
 
+export const UseGlobalStatePropertyControls: PropertyControls = {
+  shouldUseGlobalState: {
+    title: "Value Binding",
+    type: ControlType.Enum,
+    options: ["no-binding", "bind-to-variable"],
+    optionTitles: ["No Binding", "Bind To Variable"],
+    defaultValue: "no-binding",
+  },
+  globalStateKey: {
+    title: "Variable",
+    type: ControlType.String,
+    hidden: props => props.shouldUseGlobalState !== "bind-to-variable",
+  },
+}
+
+export const SetGlobalStatePropertyControls: PropertyControls = {
+  ...UseGlobalStatePropertyControls,
+  controlsGlobalState: {
+    title: "Controls Variable",
+    type: ControlType.Boolean,
+    defaultValue: true,
+    hidden: props => true,
+  },
+}
+
 /**
  * Adds controls for form validation.
  *

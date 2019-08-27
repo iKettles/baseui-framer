@@ -2,8 +2,8 @@ import * as React from "react"
 import { ThemeProvider } from "./utils/ThemeProvider"
 import { addListener } from "./utils/ThemeManagement"
 
-export function withHOC(Component): React.SFC {
-  return (props: any) => {
+export function withHOC(Component): React.SFC<any> {
+  return props => {
     const [currentTheme, setCurrentTheme] = React.useState()
 
     React.useEffect(() => {

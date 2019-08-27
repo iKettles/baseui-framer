@@ -18,10 +18,11 @@
 		"@types/styletron-react": "^5.0.1",
 		"@types/styletron-standard": "^2.0.0",
 		"baseui": "^8.16.5",
+		"reactn": "^2.2.1",
 		"styletron-engine-atomic": "^1.4.0",
 		"styletron-react": "^5.2.0"
-  },
-  "scripts": {
-    "format": "prettier --write './code/**'"
-  }
+	},
+	"scripts": {
+		"format": "prettier --write './code/**'"
+	}
 }

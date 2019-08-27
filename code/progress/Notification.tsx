@@ -1,8 +1,8 @@
 import * as React from "react"
 import * as System from "baseui/notification"
 import { ControlType, PropertyControls, addPropertyControls } from "framer"
-import { controls, merge } from "./generated/Notification"
-import { withHOC } from "./withHOC"
+import { controls, merge } from "../generated/Notification"
+import { withHOC } from "../withHOC"
 
 const InnerNotification: React.SFC<any> = ({ title, message, ...props }) => {
   return (

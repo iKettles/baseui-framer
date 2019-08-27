@@ -1,20 +1,26 @@
 import * as System from "baseui/input"
 import { addPropertyControls, ControlType } from "framer"
 import * as React from "react"
+import { compose } from "../utils/compose"
 import { controls, merge } from "../generated/Input"
-import { useManagedState } from "../utils/useManagedState"
+import { SetGlobalStatePropertyControls } from "../utils/PropertyControls"
+import { withManagedState } from "../utils/withManagedState"
 import { withHOC } from "../withHOC"
 
-const InnerInput: React.SFC<any> = ({ value, ...props }) => {
-  const [currentValue, setValue] = useManagedState(value)
-  return <System.Input value={currentValue} onChange={e => setValue(e.target["value"])} {...props} />
+const InnerInput: React.SFC<any> = ({ onChange, ...props }) => {
+  const onValueChange = React.useCallback(e => onChange(e.target.value), [])
+  return <System.Input onChange={onValueChange} {...props} />
 }
 
-export const Input = withHOC(InnerInput)
+export const Input = compose(
+  withHOC,
+  withManagedState
+)(InnerInput)
 
 Input.defaultProps = {
   width: 150,
   height: 50,
+  valuePropName: "value",
 }
 
 addPropertyControls(Input, {
@@ -25,4 +31,5 @@ addPropertyControls(Input, {
   placeholder: merge(controls.placeholder, { defaultValue: "placeholder" }),
   value: merge(controls.value, {}),
   type: { type: ControlType.Enum, options: ["text", "password", "number"], defaultValue: "text" },
+  ...SetGlobalStatePropertyControls,
 })
