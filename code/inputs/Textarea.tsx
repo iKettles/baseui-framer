@@ -20,7 +20,7 @@ Textarea.defaultProps = {
 addPropertyControls(Textarea, {
   rows: merge(controls.rows, {
     defaultValue: 5,
-    min: 0,
+    min: 1,
     max: 100,
     displayStepper: true,
   }),
