@@ -3,18 +3,24 @@ import * as System from "baseui/payment-card"
 import { addPropertyControls } from "framer"
 import { controls, merge } from "../generated/PaymentCard"
 import { withHOC } from "../withHOC"
-import { useManagedState } from "../utils/useManagedState"
+import { compose } from "../utils/compose"
+import { withManagedState } from "../utils/withManagedState"
+import { SetGlobalStatePropertyControls } from "../utils/PropertyControls"
 
-const InnerPaymentCard: React.SFC<any> = ({ value, ...props }) => {
-  const [currentValue, setValue] = useManagedState(value)
-  return <System.PaymentCard value={currentValue} onChange={e => setValue(e.target["value"])} {...props} />
+const InnerPaymentCard: React.SFC<any> = ({ onChange, ...props }) => {
+  const onValueChange = React.useCallback(e => onChange(e.target.value), [])
+  return <System.PaymentCard onChange={onValueChange} {...props} />
 }
 
-export const PaymentCard = withHOC(InnerPaymentCard)
+export const PaymentCard = compose(
+  withHOC,
+  withManagedState
+)(InnerPaymentCard)
 
 PaymentCard.defaultProps = {
   width: 250,
   height: 50,
+  valuePropName: "value",
 }
 
 addPropertyControls(PaymentCard, {
@@ -27,4 +33,5 @@ addPropertyControls(PaymentCard, {
   }),
   size: merge(controls.size, {}),
   value: merge(controls.value, { defaultValue: "" }),
+  ...SetGlobalStatePropertyControls,
 })
