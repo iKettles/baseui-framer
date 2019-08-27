@@ -51,8 +51,6 @@ export const withManagedState = (Component): React.SFC<any> => {
       onChange: setValue,
     }
 
-    console.log(updatedProps[valuePropName])
-
     return <Component {...updatedProps} />
   }
 }

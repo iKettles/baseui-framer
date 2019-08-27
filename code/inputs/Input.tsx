@@ -6,7 +6,6 @@ import { controls, merge } from "../generated/Input"
 import { SetGlobalStatePropertyControls } from "../utils/PropertyControls"
 import { withManagedState } from "../utils/withManagedState"
 import { withHOC } from "../withHOC"
-import { useManagedState } from "../utils/useManagedState"
 
 const InnerInput: React.SFC<any> = ({ onChange, ...props }) => {
   const onValueChange = React.useCallback(e => onChange(e.target.value), [])

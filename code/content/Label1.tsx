@@ -4,7 +4,7 @@ import { addPropertyControls } from "framer"
 import { withHOC } from "../withHOC"
 import { TextPropertyControl, ColorPropertyControl, UseGlobalStatePropertyControls } from "../utils/PropertyControls"
 import { withManagedState } from "../utils/withManagedState"
-import compose from "../utils/compose"
+import { compose } from "../utils/compose"
 
 const InnerLabel1: React.SFC<any> = ({ text, ["children"]: _, willChangeTransform: __, ...props }) => {
   return <System.Label1 {...props}>{text}</System.Label1>
