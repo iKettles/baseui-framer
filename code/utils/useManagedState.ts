@@ -17,10 +17,5 @@ export function useManagedState<T>(
     [onChangeGlobalVariable]
   )
 
-  // Update managed value if default value of component changes
-  useEffect(() => {
-    setManagedValue(value)
-  }, [value])
-
   return [currentValue, setManagedValue]
 }
