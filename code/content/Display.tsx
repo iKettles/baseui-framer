@@ -11,8 +11,8 @@ const InnerDisplay: React.SFC<any> = ({ text, ["children"]: _, willChangeTransfo
 export const Display = withHOC(InnerDisplay)
 
 Display.defaultProps = {
-  width: 150,
-  height: 50,
+  width: 480,
+  height: 115,
 }
 
 addPropertyControls(Display, {
