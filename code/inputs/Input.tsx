@@ -1,10 +1,9 @@
 import * as System from "baseui/input"
-import { addPropertyControls } from "framer"
+import { addPropertyControls, ControlType } from "framer"
 import * as React from "react"
 import { controls, merge } from "../generated/Input"
-import { withHOC } from "../withHOC"
 import { useManagedState } from "../utils/useManagedState"
-import { ArrowLeft } from "../icons/ArrowLeft"
+import { withHOC } from "../withHOC"
 
 const InnerInput: React.SFC<any> = ({ value, ...props }) => {
   const [currentValue, setValue] = useManagedState(value)
@@ -19,10 +18,11 @@ Input.defaultProps = {
 }
 
 addPropertyControls(Input, {
-  clearable: merge(controls.clearable, {}),
+  clearable: merge(controls.clearable, { defaultValue: true }),
   disabled: merge(controls.disabled, {}),
   error: merge(controls.error, {}),
   positive: merge(controls.positive, {}),
   placeholder: merge(controls.placeholder, { defaultValue: "placeholder" }),
   value: merge(controls.value, {}),
+  type: { type: ControlType.Enum, options: ["text", "password", "number"], defaultValue: "text" },
 })
