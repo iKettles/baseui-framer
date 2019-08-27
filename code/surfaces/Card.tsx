@@ -33,8 +33,8 @@ const InnerCard: React.SFC<any> = props => {
 export const Card = withHOC(InnerCard)
 
 Card.defaultProps = {
-  width: 150,
-  height: 50,
+  width: 350,
+  height: 250,
 }
 
 addPropertyControls(Card, {
