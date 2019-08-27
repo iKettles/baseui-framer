@@ -6,4 +6,4 @@ const Wrapper: React.SFC = props => {
   return <Icon {...props} />
 }
 
-export const Serach = withIcon(Wrapper)
+export const Search = withIcon(Wrapper)
