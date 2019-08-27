@@ -1,14 +1,15 @@
-import * as React from "react"
 import * as System from "baseui/pagination"
-import { ControlType, PropertyControls, addPropertyControls } from "framer"
+import { addPropertyControls } from "framer"
+import * as React from "react"
 import { controls, merge } from "../generated/Pagination"
+import { useManagedState } from "../utils/useManagedState"
 import { withHOC } from "../withHOC"
 
-const InnerPagination: React.SFC = props => {
-  const [currentPage, setCurrentPage] = React.useState(props.currentPage)
+const InnerPagination: React.SFC<any> = ({ currentPage, ...props }) => {
+  const [page, setCurrentPage] = useManagedState(currentPage)
   const onPageChanged = React.useCallback(({ nextPage }) => setCurrentPage(Math.min(Math.max(nextPage, 1), 20)), [])
 
-  return <System.Pagination {...props} currentPage={currentPage} onPageChange={onPageChanged} />
+  return <System.Pagination {...props} currentPage={page} onPageChange={onPageChanged} />
 }
 
 export const Pagination = withHOC(InnerPagination)
@@ -24,5 +25,6 @@ addPropertyControls(Pagination, {
   }),
   currentPage: merge(controls.currentPage, {
     defaultValue: 1,
+    displayStepper: true,
   }),
 })

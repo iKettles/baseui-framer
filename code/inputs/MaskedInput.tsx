@@ -1,11 +1,13 @@
 import * as System from "baseui/input"
-import { addPropertyControls } from "framer"
+import { addPropertyControls, ControlType } from "framer"
 import * as React from "react"
 import { controls, merge } from "../generated/MaskedInput"
 import { withHOC } from "../withHOC"
+import { useManagedState } from "../utils/useManagedState"
 
-const InnerMaskedInput: React.SFC = props => {
-  return <System.MaskedInput {...props} />
+const InnerMaskedInput: React.SFC<any> = ({ value, willChangeTransform: _, ...props }) => {
+  const [currentValue, setValue] = useManagedState(value)
+  return <System.MaskedInput value={currentValue} onChange={e => setValue(e.target["value"])} {...props} />
 }
 
 export const MaskedInput = withHOC(InnerMaskedInput)
@@ -21,8 +23,7 @@ addPropertyControls(MaskedInput, {
   disabled: merge(controls.disabled, {}),
   error: merge(controls.error, {}),
   positive: merge(controls.positive, {}),
-  placeholder: merge(controls.placeholder, {}),
+  placeholder: merge(controls.placeholder, { defaultValue: "placeholder" }),
   size: merge(controls.size, {}),
-  type: merge(controls.type, {}),
   value: merge(controls.value, { defaultValue: "1234567890" }),
 })

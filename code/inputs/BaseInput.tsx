@@ -1,18 +1,14 @@
-import * as React from "react"
 import * as System from "baseui/input"
-import { ControlType, PropertyControls, addPropertyControls } from "framer"
-import { controls, merge } from "./generated/BaseInput"
-import { withHOC } from "./withHOC"
-import { SIZE } from "baseui/button"
-import { ThemePropertyControl } from "./utils/PropertyControls"
+import { addPropertyControls, ControlType } from "framer"
+import * as React from "react"
+import { controls, merge } from "../generated/BaseInput"
+import { ThemePropertyControl } from "../utils/PropertyControls"
+import { useManagedState } from "../utils/useManagedState"
+import { withHOC } from "../withHOC"
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
-}
-
-const InnerBaseInput: React.SFC = props => {
-  return <System.BaseInput {...props} style={style} />
+const InnerBaseInput: React.SFC<any> = ({ value, ["children"]: _, ...props }) => {
+  const [currentValue, setValue] = useManagedState(value)
+  return <System.BaseInput {...props} value={currentValue} onChange={e => setValue(e.target["value"])} />
 }
 
 export const BaseInput = withHOC(InnerBaseInput)
@@ -38,33 +34,25 @@ BaseInput.defaultProps = {
   clearable: false,
   overrides: {},
   pattern: null,
-  placeholder: "Placeholder",
   required: false,
-  size: SIZE.default,
   type: "text",
   theme: "light",
 }
 
 addPropertyControls(BaseInput, {
-  adjoined: merge(controls.adjoined, {}),
-  autoComplete: merge(controls.autoComplete, {}),
-  autoFocus: merge(controls.autoFocus, {}),
   clearable: merge(controls.clearable, {}),
   disabled: merge(controls.disabled, {}),
   error: merge(controls.error, {}),
   positive: merge(controls.positive, {}),
-  id: merge(controls.id, {}),
-  name: merge(controls.name, {}),
-  placeholder: merge(controls.placeholder, {}),
-  required: merge(controls.required, {}),
+  placeholder: merge(controls.placeholder, { defaultValue: "Placeholder" }),
   size: merge(controls.size, {}),
   type: {
     title: "Type",
-    options: ["text", "textarea", "password"],
+    options: ["text", "password", "email", "number"],
     optionTitles: ["Text", "Textarea", "Password"],
     type: ControlType.Enum,
   },
   value: merge(controls.value, {}),
-  rows: merge(controls.rows, { hidden: props => props.type !== "textarea" }),
+  rows: merge(controls.rows, { hidden: props => props.type !== "textarea", defaultValue: 2 }),
   ...ThemePropertyControl,
 })

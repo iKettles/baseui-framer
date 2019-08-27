@@ -9,7 +9,7 @@ import { LabelPropertyControl } from "../utils/PropertyControls"
 const InnerCheckbox: React.SFC<any> = ({ checked, label, ...props }) => {
   const [currentlyChecked, setChecked] = useManagedState(checked)
   return (
-    <System.Checkbox checked={currentlyChecked} onChange={e => setChecked(e.target["value"])} {...props}>
+    <System.Checkbox checked={currentlyChecked} onChange={e => setChecked(e.target["checked"])} {...props}>
       {label}
     </System.Checkbox>
   )
@@ -19,7 +19,7 @@ export const Checkbox = withHOC(InnerCheckbox)
 
 Checkbox.defaultProps = {
   width: 150,
-  height: 50,
+  height: 25,
 }
 
 addPropertyControls(Checkbox, {
@@ -27,7 +27,6 @@ addPropertyControls(Checkbox, {
   disabled: merge(controls.disabled, {}),
   required: merge(controls.required, {}),
   isError: merge(controls.isError, {}),
-  type: merge(controls.type, {}),
   isIndeterminate: merge(controls.isIndeterminate, {}),
   labelPlacement: merge(controls.labelPlacement, {}),
   checkmarkType: merge(controls.checkmarkType, {}),
