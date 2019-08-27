@@ -1,25 +1,9 @@
-import BaseUiChevron from "baseui/icon/chevron-left"
-import { addPropertyControls, ControlType } from "framer"
+import Icon from "baseui/icon/chevron-left"
 import * as React from "react"
-import { withHOC } from "../withHOC"
-import { IconPropertyControls } from "../utils/PropertyControls"
+import { withIcon } from "./withIcon"
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
+const Wrapper: React.SFC = props => {
+  return <Icon {...props} />
 }
 
-const InnerChevron: React.SFC = props => {
-  return <BaseUiChevron {...props} style={style} />
-}
-
-export const ChevronLeft = withHOC(InnerChevron)
-
-ChevronLeft.defaultProps = {
-  width: 50,
-  height: 50,
-}
-
-addPropertyControls(ChevronLeft, {
-  ...IconPropertyControls,
-})
+export const ChevronLeft = withIcon(Wrapper)

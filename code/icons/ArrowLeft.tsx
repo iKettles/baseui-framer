@@ -1,25 +1,9 @@
-import BaseUiArrowLeft from "baseui/icon/arrow-left"
-import { addPropertyControls, ControlType } from "framer"
+import Icon from "baseui/icon/arrow-left"
 import * as React from "react"
-import { withHOC } from "../withHOC"
-import { IconPropertyControls } from "../utils/PropertyControls"
+import { withIcon } from "./withIcon"
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
+const Wrapper: React.SFC = props => {
+  return <Icon {...props} />
 }
 
-const InnerArrowLeft: React.SFC = props => {
-  return <BaseUiArrowLeft {...props} style={style} />
-}
-
-export const ArrowLeft = withHOC(InnerArrowLeft)
-
-ArrowLeft.defaultProps = {
-  width: 50,
-  height: 50,
-}
-
-addPropertyControls(ArrowLeft, {
-  ...IconPropertyControls,
-})
+export const ArrowLeft = withIcon(Wrapper)

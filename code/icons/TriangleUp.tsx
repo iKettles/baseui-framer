@@ -1,25 +1,9 @@
-import BaseUiTriangleUp from "baseui/icon/triangle-up"
-import { addPropertyControls } from "framer"
+import Icon from "baseui/icon/triangle-up"
 import * as React from "react"
-import { IconPropertyControls } from "../utils/PropertyControls"
-import { withHOC } from "../withHOC"
+import { withIcon } from "./withIcon"
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
+const Wrapper: React.SFC = props => {
+  return <Icon {...props} />
 }
 
-const InnerTriangleUp: React.SFC = props => {
-  return <BaseUiTriangleUp {...props} style={style} />
-}
-
-export const TriangleUp = withHOC(InnerTriangleUp)
-
-TriangleUp.defaultProps = {
-  width: 50,
-  height: 50,
-}
-
-addPropertyControls(TriangleUp, {
-  ...IconPropertyControls,
-})
+export const TriangleUp = withIcon(Wrapper)

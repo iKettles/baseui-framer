@@ -1,25 +1,9 @@
-import BaseUiTriangleDown from "baseui/icon/triangle-down"
-import { addPropertyControls, ControlType } from "framer"
+import Icon from "baseui/icon/triangle-down"
 import * as React from "react"
-import { withHOC } from "../withHOC"
-import { IconPropertyControls } from "../utils/PropertyControls"
+import { withIcon } from "./withIcon"
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
+const Wrapper: React.SFC = props => {
+  return <Icon {...props} />
 }
 
-const InnerTriangleDown: React.SFC = props => {
-  return <BaseUiTriangleDown {...props} style={style} />
-}
-
-export const TriangleDown = withHOC(InnerTriangleDown)
-
-TriangleDown.defaultProps = {
-  width: 50,
-  height: 50,
-}
-
-addPropertyControls(TriangleDown, {
-  ...IconPropertyControls,
-})
+export const TriangleDown = withIcon(Wrapper)

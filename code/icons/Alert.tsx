@@ -1,25 +1,9 @@
-import BaseUiAlert from "baseui/icon/alert"
-import { addPropertyControls, ControlType } from "framer"
+import Icon from "baseui/icon/alert"
 import * as React from "react"
-import { withHOC } from "../withHOC"
-import { IconPropertyControls } from "../utils/PropertyControls"
+import { withIcon } from "./withIcon"
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
+const Wrapper: React.SFC = props => {
+  return <Icon {...props} />
 }
 
-const InnerAlert: React.SFC = props => {
-  return <BaseUiAlert {...props} style={style} />
-}
-
-export const Alert = withHOC(InnerAlert)
-
-Alert.defaultProps = {
-  width: 50,
-  height: 50,
-}
-
-addPropertyControls(Alert, {
-  ...IconPropertyControls,
-})
+export const Alert = withIcon(Wrapper)

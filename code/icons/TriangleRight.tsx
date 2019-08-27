@@ -1,25 +1,9 @@
-import BaseUiTriangleRight from "baseui/icon/triangle-right"
-import { addPropertyControls } from "framer"
+import Icon from "baseui/icon/triangle-right"
 import * as React from "react"
-import { IconPropertyControls } from "../utils/PropertyControls"
-import { withHOC } from "../withHOC"
+import { withIcon } from "./withIcon"
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
+const Wrapper: React.SFC = props => {
+  return <Icon {...props} />
 }
 
-const InnerTriangleRight: React.SFC = props => {
-  return <BaseUiTriangleRight {...props} style={style} />
-}
-
-export const TriangleRight = withHOC(InnerTriangleRight)
-
-TriangleRight.defaultProps = {
-  width: 50,
-  height: 50,
-}
-
-addPropertyControls(TriangleRight, {
-  ...IconPropertyControls,
-})
+export const TriangleRight = withIcon(Wrapper)

@@ -1,25 +1,9 @@
-import BaseUiPlus from "baseui/icon/plus"
-import { addPropertyControls, ControlType } from "framer"
+import Icon from "baseui/icon/plus"
 import * as React from "react"
-import { withHOC } from "../withHOC"
-import { IconPropertyControls } from "../utils/PropertyControls"
+import { withIcon } from "./withIcon"
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
+const Wrapper: React.SFC = props => {
+  return <Icon {...props} />
 }
 
-const InnerPlus: React.SFC = props => {
-  return <BaseUiPlus {...props} style={style} />
-}
-
-export const Plus = withHOC(InnerPlus)
-
-Plus.defaultProps = {
-  width: 50,
-  height: 50,
-}
-
-addPropertyControls(Plus, {
-  ...IconPropertyControls,
-})
+export const Plus = withIcon(Wrapper)

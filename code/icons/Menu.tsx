@@ -1,25 +1,9 @@
-import BaseUiMenu from "baseui/icon/menu"
-import { addPropertyControls, ControlType } from "framer"
+import Icon from "baseui/icon/menu"
 import * as React from "react"
-import { withHOC } from "../withHOC"
-import { IconPropertyControls } from "../utils/PropertyControls"
+import { withIcon } from "./withIcon"
 
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
+const Wrapper: React.SFC = props => {
+  return <Icon {...props} />
 }
 
-const InnerMenu: React.SFC = props => {
-  return <BaseUiMenu {...props} style={style} />
-}
-
-export const Menu = withHOC(InnerMenu)
-
-Menu.defaultProps = {
-  width: 50,
-  height: 50,
-}
-
-addPropertyControls(Menu, {
-  ...IconPropertyControls,
-})
+export const Menu = withIcon(Wrapper)
