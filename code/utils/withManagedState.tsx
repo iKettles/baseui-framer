@@ -12,25 +12,10 @@ export const withManagedState = (Component): React.SFC<any> => {
       isUsingGlobalState && controlsGlobalState && setGlobal
     )
 
-    /*
-      This effect ensures the global state stays in sync with whatever component controls it.
-      If the component is switched from Bind To Variable -> No Binding, it will reset the global state
-      If the component is switched from No Binding -> Bind To variable, it will set the global state
-    */
-    React.useEffect(() => {
-      if (!isUsingGlobalState && controlsGlobalState) {
-        // Doesn't use the global variable but does control it, reset the global state and set managed (local) state
-        setValue(localComponentValue)
-        setGlobal(undefined)
-      }
-    }, [isUsingGlobalState, controlsGlobalState, global, localComponentValue])
-
     // If this component doesn't control the global state, we need to keep the managed state in sync with the global state
     React.useEffect(() => {
       if (isUsingGlobalState && !controlsGlobalState && global !== null && global !== undefined) {
         setValue(global)
-      } else if (!isUsingGlobalState) {
-        setValue(localComponentValue)
       }
     }, [global, isUsingGlobalState, controlsGlobalState])
 
