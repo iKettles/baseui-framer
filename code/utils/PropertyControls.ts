@@ -42,24 +42,24 @@ export const ItemPropertyControlDescription: ControlDescription = {
   },
 }
 
-export const UseGlobalVariablePropertyControls: PropertyControls = {
-  useGlobalVariable: {
+export const UseGlobalStatePropertyControls: PropertyControls = {
+  shouldUseGlobalState: {
     title: "Value Binding",
     type: ControlType.Enum,
     options: ["no-binding", "bind-to-variable"],
     optionTitles: ["No Binding", "Bind To Variable"],
     defaultValue: "no-binding",
   },
-  useGlobalVariableName: {
+  globalStateKey: {
     title: "Variable",
     type: ControlType.String,
-    hidden: props => props.useGlobalVariable !== "bind-to-variable",
+    hidden: props => props.shouldUseGlobalState !== "bind-to-variable",
   },
 }
 
-export const SetGlobalVariablePropertyConteols: PropertyControls = {
-  ...UseGlobalVariablePropertyControls,
-  controlsGlobalVariable: {
+export const SetGlobalStatePropertyControls: PropertyControls = {
+  ...UseGlobalStatePropertyControls,
+  controlsGlobalState: {
     title: "Controls Variable",
     type: ControlType.Boolean,
     defaultValue: true,
