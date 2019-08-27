@@ -6,14 +6,11 @@ export const withManagedState = (Component): React.SFC<any> => {
   return ({ shouldUseGlobalState, globalStateKey, controlsGlobalState = false, valuePropName, ...props }) => {
     const localComponentValue = props[valuePropName]
     const isUsingGlobalState = shouldUseGlobalState === "bind-to-variable" && !!globalStateKey
-    const [currentGlobalStateKey, setCurrentGlobalStateKey] = React.useState<any>(globalStateKey)
     const [global, setGlobal] = useGlobal<any>(globalStateKey)
     const [currentValue, setValue] = useManagedState(
       isUsingGlobalState ? global : localComponentValue,
       isUsingGlobalState && controlsGlobalState && setGlobal
     )
-
-    // console.log(`currentValue: ${currentValue}`)
 
     // React.useEffect(() => {
     //   console.log(`globalStateKey: ${globalStateKey}`)
@@ -46,13 +43,13 @@ export const withManagedState = (Component): React.SFC<any> => {
     }, [isUsingGlobalState, controlsGlobalState, global, localComponentValue])
 
     // If this component doesn't control the global state, we need to keep the managed state in sync with the global state
-    if (isUsingGlobalState && !controlsGlobalState) {
-      React.useEffect(() => {
-        if (global !== null && global !== undefined) {
-          setValue(global)
-        }
-      }, [global])
-    }
+    React.useEffect(() => {
+      if (isUsingGlobalState && !controlsGlobalState && global !== null && global !== undefined) {
+        setValue(global)
+      } else if (!isUsingGlobalState) {
+        setValue(localComponentValue)
+      }
+    }, [global, isUsingGlobalState, controlsGlobalState])
 
     /*
       If this component controls the global state we need to listen for changes and update the global state accordingly.
@@ -70,6 +67,8 @@ export const withManagedState = (Component): React.SFC<any> => {
       [valuePropName]: currentValue === undefined ? localComponentValue || "" : currentValue,
       onChange: setValue,
     }
+
+    console.log(updatedProps[valuePropName])
 
     return <Component {...updatedProps} />
   }
