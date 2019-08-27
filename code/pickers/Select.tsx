@@ -29,6 +29,7 @@ Select.defaultProps = {
 }
 
 addPropertyControls(Select, {
+  type: merge(controls.type, {}),
   options: {
     type: ControlType.Array,
     propertyControl: { type: ControlType.String },
@@ -51,9 +52,11 @@ addPropertyControls(Select, {
     max: 500,
     defaultValue: 200,
   },
-  noResultsMsg: merge(controls.noResultsMsg, {}),
+  noResultsMsg: merge(controls.noResultsMsg, {
+    defaultValue: "🤷‍♂️ No results found",
+    hidden: props => props.type !== "search",
+  }),
   openOnClick: merge(controls.openOnClick, {}),
-  placeholder: merge(controls.placeholder, {}),
+  placeholder: merge(controls.placeholder, { defaultValue: "placeholder" }),
   size: merge(controls.size, {}),
-  type: merge(controls.type, {}),
 })
