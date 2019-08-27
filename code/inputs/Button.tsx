@@ -16,7 +16,7 @@ const InnerButton: React.SFC<any> = ({ text, willChangeTransform: _, ...props })
 export const Button = withHOC(InnerButton)
 
 Button.defaultProps = {
-  width: 200,
+  width: 87,
   height: 50,
 }
 
