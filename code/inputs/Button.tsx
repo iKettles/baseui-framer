@@ -5,7 +5,7 @@ import { controls, merge } from "../generated/Button"
 import { ThemePropertyControl } from "../utils/PropertyControls"
 import { withHOC } from "../withHOC"
 
-const InnerButton: React.SFC<any> = ({ text, ...props }) => {
+const InnerButton: React.SFC<any> = ({ text, willChangeTransform: _, ...props }) => {
   return (
     <System.Button {...props} $as={props.href ? "a" : "button"}>
       {text}
@@ -21,11 +21,10 @@ Button.defaultProps = {
 }
 
 export const ButtonPropertyControls: PropertyControls = {
-  href: merge(controls.href, {}),
+  kind: merge(controls.kind, {}),
   disabled: merge(controls.disabled, {}),
   isLoading: merge(controls.isLoading, {}),
   isSelected: merge(controls.isSelected, {}),
-  kind: merge(controls.kind, {}),
   shape: merge(controls.shape, {}),
   size: merge(controls.size, {}),
   text: {
@@ -33,6 +32,7 @@ export const ButtonPropertyControls: PropertyControls = {
     type: ControlType.String,
     defaultValue: "Button",
   },
+  href: merge(controls.href, {}),
   ...ThemePropertyControl,
 }
 
