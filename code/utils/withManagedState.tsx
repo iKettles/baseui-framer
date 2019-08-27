@@ -18,12 +18,10 @@ export const withManagedState = (Component): React.SFC<any> => {
     */
     React.useEffect(() => {
       if (!isUsingGlobalState && controlsGlobalState) {
-        console.log("1")
         // Doesn't use the global variable but does control it, reset the global state and set managed (local) state
         setValue(props[valuePropName])
         setGlobal(undefined)
       } else if (isUsingGlobalState && controlsGlobalState) {
-        console.log("2")
         // Uses and controls global variable, set the global state
         setValue(props[valuePropName])
       }
