@@ -1,13 +1,8 @@
-import * as React from "react"
 import * as System from "baseui/toast"
-import { ControlType, PropertyControls, addPropertyControls } from "framer"
+import { addPropertyControls, ControlType } from "framer"
+import * as React from "react"
 import { controls, merge } from "../generated/Toast"
 import { withHOC } from "../withHOC"
-
-const style: React.CSSProperties = {
-  width: "100%",
-  height: "100%",
-}
 
 const InnerToast: React.SFC<any> = ({ text, ...props }) => {
   return <System.Toast {...props}>{text}</System.Toast>

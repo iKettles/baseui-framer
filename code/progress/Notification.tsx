@@ -1,6 +1,6 @@
-import * as React from "react"
 import * as System from "baseui/notification"
-import { ControlType, PropertyControls, addPropertyControls } from "framer"
+import { addPropertyControls, ControlType } from "framer"
+import * as React from "react"
 import { controls, merge } from "../generated/Notification"
 import { withHOC } from "../withHOC"
 
