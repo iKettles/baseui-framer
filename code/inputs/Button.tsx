@@ -4,10 +4,21 @@ import * as React from "react"
 import { controls, merge } from "../generated/Button"
 import { ThemePropertyControl } from "../utils/PropertyControls"
 import { withHOC } from "../withHOC"
+import { RawIcons } from "../icons/utils"
 
-const InnerButton: React.SFC<any> = ({ text, willChangeTransform: _, ...props }) => {
+const InnerButton: React.SFC<any> = ({ containsIcon, icon, iconLocation, text, willChangeTransform: _, ...props }) => {
+  const enhancerFunction =
+    RawIcons[icon] && containsIcon
+      ? () => {
+          const Icon = RawIcons[icon]
+          return <Icon />
+        }
+      : undefined
+
+  const enhancer = iconLocation === "left" ? { startEnhancer: enhancerFunction } : { endEnhancer: enhancerFunction }
+
   return (
-    <System.Button {...props} $as={props.href ? "a" : "button"}>
+    <System.Button {...props} {...enhancer} $as={props.href ? "a" : "button"}>
       {text}
     </System.Button>
   )
@@ -33,6 +44,26 @@ export const ButtonPropertyControls: PropertyControls = {
     defaultValue: "Button",
   },
   href: merge(controls.href, {}),
+
+  containsIcon: {
+    type: ControlType.Boolean,
+    title: "Icon",
+    defaultValue: false,
+  },
+  icon: {
+    type: ControlType.Enum,
+    title: "Select Icon",
+    options: ["none", ...Object.keys(RawIcons)],
+    defaultValue: "none",
+    hidden: props => !props.containsIcon,
+  },
+  iconLocation: {
+    type: ControlType.Enum,
+    title: "Icon Location",
+    options: ["left", "right"],
+    defaultValue: "left",
+    hidden: props => !props.containsIcon,
+  },
   ...ThemePropertyControl,
 }
 
