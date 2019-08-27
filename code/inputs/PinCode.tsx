@@ -14,14 +14,12 @@ const InnerPinCode: React.SFC<any> = ({ values, ...props }) => {
 export const PinCode = withHOC(InnerPinCode)
 
 PinCode.defaultProps = {
-  width: 150,
+  width: 225,
   height: 56,
 }
 
 addPropertyControls(PinCode, {
   positive: merge(controls.positive, {}),
-  autoFocus: merge(controls.autoFocus, {}),
-  clearable: merge(controls.clearable, {}),
   disabled: merge(controls.disabled, {}),
   error: merge(controls.error, {}),
   placeholder: merge(controls.placeholder, { defaultValue: "." }),
